@@ -7,6 +7,8 @@
     <list default="true" id="a590d369-126c-4e9d-aceb-a949d9552091" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotelGest/config/adminlte.php" beforeDir="false" afterPath="$PROJECT_DIR$/hotelGest/config/adminlte.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotelGest/resources/views/hotel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/hotelGest/resources/views/hotel.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotelGest/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/hotelGest/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

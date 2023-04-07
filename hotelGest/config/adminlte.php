@@ -332,7 +332,7 @@ return [
         ['header' => 'Management'],
         [
             'text' => 'Hotel',
-            'url'  => 'admin/settings',
+            'url'  => '/hotel',
             'icon'    => 'fas fa-fw fa-share',
         ],
 
