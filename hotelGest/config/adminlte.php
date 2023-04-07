@@ -329,42 +329,31 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        ['header' => 'Management'],
         [
-            'text'    => 'multilevel',
+            'text' => 'Hotel',
+            'url'  => 'admin/settings',
+            'icon'    => 'fas fa-fw fa-share',
+        ],
+
+        [
+            'text'    => 'Management-Room',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
+                    'text' => 'Quarto',
                     'url'  => '#',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
+                    'text' => 'Tipo',
                     'url'  => '#',
                 ],
+                [
+                    'text' => 'Preco',
+                    'url'  => '#',
+                ],
+
+
             ],
         ],
         ['header' => 'labels'],
