@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a590d369-126c-4e9d-aceb-a949d9552091" name="Changes" comment="" />
+    <list default="true" id="a590d369-126c-4e9d-aceb-a949d9552091" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/hotelGest/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/hotelGest/resources/views/home.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,7 +182,6 @@
       <workItem from="1680712879339" duration="744000" />
       <workItem from="1680713643341" duration="2226000" />
       <workItem from="1680821021276" duration="340000" />
-      <workItem from="1680883547332" duration="316000" />
     </task>
     <servers />
   </component>
