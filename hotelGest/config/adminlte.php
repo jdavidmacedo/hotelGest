@@ -332,7 +332,7 @@ return [
         ['header' => 'Management'],
         [
             'text' => 'Hotel',
-            'url'  => '/hotel',
+            'url'  => '/hotel/createhotel',
             'icon'    => 'fas fa-fw fa-share',
         ],
 
@@ -346,7 +346,7 @@ return [
                 ],
                 [
                     'text' => 'Tipo',
-                    'url'  => '#',
+                    'url'  => '/TipoQuarto/createtipo',
                 ],
                 [
                     'text' => 'Preco',

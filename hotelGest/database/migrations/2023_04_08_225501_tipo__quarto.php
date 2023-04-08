@@ -4,19 +4,24 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEpocasTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('epocas', function (Blueprint $table) {
+        Schema::create('tipos_de_quarto', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_hotel');
             $table->string('nome');
-            $table->date('data_inicio');
-            $table->date('data_fim');
+            $table->text('descricao')->nullable();
             $table->timestamps();
+
+            $table->foreign('id_hotel')
+                ->references('id')
+                ->on('hoteis')
+                ->onDelete('cascade');
         });
     }
 
@@ -25,8 +30,6 @@ class CreateEpocasTable extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('epocas');
+        Schema::dropIfExists('tipos_de_quarto');
     }
-
-
 };
