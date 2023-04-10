@@ -36,7 +36,7 @@ Route::post('/hotel/createhotel', function () {
     $telefone=request('telefone');
 
     DB::table('hotel')-> insert([
-        'name'=> $nome,
+        'nome'=> $nome,
         'email'=>$email,
         'endereco'=>$endereco,
         'pais'=>$pais,
