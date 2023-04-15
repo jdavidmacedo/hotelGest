@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\hotelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,29 +27,12 @@ Route::get('/TipoQuarto/createtipo', function () {
 });
 
 
-Route::post('/hotel/createhotel', function () {
-
-    $nome=request('nome');
-    $email=request('email');
-    $endereco=request('endereco');
-    $cidade=request('cidade');
-    $pais=request('pais');
-    $telefone=request('telefone');
-
-    DB::table('hotel')-> insert([
-        'nome'=> $nome,
-        'email'=>$email,
-        'endereco'=>$endereco,
-        'pais'=>$pais,
-        'cidade'=>$cidade,
-        'telefone'=>$telefone,
-
-    ]);
 
 
-    return redirect('/hotel/createhotel')-> with('success', 'form submited successfullly');
-});
 
+
+Route::get('/hotel/create', [HotelController::class, 'create'])->name('hotel.create');
+Route::post('/hotel', [HotelController::class, 'store'])->name('hotel.store');
 
 
 

@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('pais');
             $table->string('telefone');
             $table->string('email');
-            $table->timestamps();
+            $table
+                ->timestamps();
         });
     }
 
