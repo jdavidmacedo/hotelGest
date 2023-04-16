@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="/hotel/createhotel" method="post">
+            <form action="{{ route('hotel.store') }}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="nome">Nome:</label>
