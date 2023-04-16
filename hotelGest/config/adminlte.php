@@ -332,8 +332,19 @@ return [
         ['header' => 'Management'],
         [
             'text' => 'Hotel',
-            'url'  => '/hotel/createhotel',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon' => 'fas fa-fw fa-hotel',
+            'submenu' => [
+                [
+                    'text' => 'Listar Hotéis',
+                    'url' => '/hotel',
+                    'icon' => 'fas fa-fw fa-list',
+                ],
+                [
+                    'text' => 'Adicionar Hotel',
+                    'url' => '/hotel/create',
+                    'icon' => 'fas fa-fw fa-plus',
+                ],
+            ],
         ],
 
         [

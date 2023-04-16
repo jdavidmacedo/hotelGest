@@ -16,6 +16,38 @@ class HotelController extends Controller
         return view('hotel.create');
     }
 
+    public function index()
+    {
+        $hoteis = hotel::all();
+        return view('hotel.index', compact('hoteis'));
+    }
+
+    public function edit(hotel $hotel)
+    {
+        return view('hotel.edit', compact('hotel'));
+    }
+
+    public function update(Request $request, hotel $hotel)
+    {
+        $validatedData = $request->validate([
+            'nome' => 'required|string|max:255',
+            'endereco' => 'required|string|max:255',
+            'cidade' => 'required|string|max:255',
+            'pais' => 'required|string|max:255',
+            'telefone' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:hotel,email,' . $hotel->id
+        ]);
+        $hotel->update($validatedData);
+
+        return redirect()->route('hotel.index')->with('success', 'Hotel atualizado com sucesso!');
+    }
+    public function destroy(hotel $hotel)
+    {
+        $hotel->delete();
+        return redirect()->route('hotel.index')->with('success', 'Hotel removido com sucesso!');
+    }
+
+
     public function store(Request $request)
     {
 
@@ -46,7 +78,7 @@ class HotelController extends Controller
             'email' => 'required|email|max:255|unique:hotel,email'
         ]);
 
-        Hotel::create($validatedData);
+        hotel::create($validatedData);
 
         return redirect()->route('hotel.create')->with('success', 'Hotel criado com sucesso!');
     }

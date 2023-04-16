@@ -27,15 +27,15 @@ Route::get('/TipoQuarto/createtipo', function () {
 });
 
 
-
-
-
-
 Route::get('/hotel/create', [HotelController::class, 'create'])->name('hotel.create');
 Route::post('/hotel', [HotelController::class, 'store'])->name('hotel.store');
 
 
 
+Route::get('/hotel', [HotelController::class, 'index'])->name('hotel.index');
+Route::get('/hotel/edit/{hotel}', [HotelController::class, 'edit'])->name('hotel.edit');
+Route::put('/hotel/{hotel}', [HotelController::class, 'update'])->name('hotel.update');
+Route::delete('/hotel/{hotel}', [HotelController::class, 'destroy'])->name('hotel.destroy');
 
 
 
