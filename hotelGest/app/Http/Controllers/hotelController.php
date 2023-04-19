@@ -9,6 +9,7 @@ use App\Models\Hotel;
 use Illuminate\Support\Facades\DB;
 
 
+
 class HotelController extends Controller
 {
     public function create()

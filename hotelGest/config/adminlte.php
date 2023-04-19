@@ -341,7 +341,7 @@ return [
                 ],
                 [
                     'text' => 'Adicionar Hotel',
-                    'url' => '/hotel/create',
+                    'url' => '/hotel/createhotel',
                     'icon' => 'fas fa-fw fa-plus',
                 ],
             ],

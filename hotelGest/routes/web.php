@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\hotelController;
+use App\Http\Controllers\TipoDeQuartoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,12 @@ Route::get('/hotel', [HotelController::class, 'index'])->name('hotel.index');
 Route::get('/hotel/edit/{hotel}', [HotelController::class, 'edit'])->name('hotel.edit');
 Route::put('/hotel/{hotel}', [HotelController::class, 'update'])->name('hotel.update');
 Route::delete('/hotel/{hotel}', [HotelController::class, 'destroy'])->name('hotel.destroy');
+
+
+
+Route::get('/TipoDeQuarto/create', [TipoDeQuartoController::class, 'create'])->name('TipoDeQuarto.create');
+Route::post('/TipoDeQuarto', [TipoDeQuartoController::class, 'store'])->name('TipoDeQuarto.store');
+
 
 
 
