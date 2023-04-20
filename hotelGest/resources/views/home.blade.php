@@ -1,13 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('Menu', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard1</h1>
+    <h1>Menu Principal</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>Bem vindo ao HotelGest.    </p>
+    <p>O HotelGest é uma aplicação WEB criada por alunos do Instituto Politécnico de Viana do Castelo do curso de Engenharia de Computação Gráfica e Multimédia.
+    <br>Este projeto foi desenvolvido com o intuito de ajudar instituições hoteleiras na gestão dos seus recursos e ambientes.    </p>
 @stop
 
 @section('css')
