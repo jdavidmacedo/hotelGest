@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nome');
             $table->text('descricao')->nullable();
             $table->timestamps();
-            $table->foreignId('hotel_id')->constrained('hotel');
+            //$table->foreignId('hotel_id')->constrained('hotel');
 
             $table->foreign('id_hotel')
                 ->references('id')

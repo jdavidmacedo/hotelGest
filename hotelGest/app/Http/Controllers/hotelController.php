@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\Hotel;
 use Illuminate\Support\Facades\DB;
 
-
-
 class HotelController extends Controller
 {
     public function create()
@@ -28,20 +26,26 @@ class HotelController extends Controller
         return view('hotel.edit', compact('hotel'));
     }
 
-    public function update(Request $request, hotel $hotel)
+    public function update(Request $request, Hotel $hotel)
     {
-        $validatedData = $request->validate([
-            'nome' => 'required|string|max:255',
-            'endereco' => 'required|string|max:255',
-            'cidade' => 'required|string|max:255',
-            'pais' => 'required|string|max:255',
-            'telefone' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:hotel,email,' . $hotel->id
-        ]);
-        $hotel->update($validatedData);
+        // Update the hotel using the DB facade, without validation
+        $affectedRows = DB::table('hotel')
+            ->where('id', $hotel->id)
+            ->update([
+                'nome' => $request->input('nome'),
+                'email' => $request->input('email'),
+                'endereco' => $request->input('endereco'),
+                'cidade' => $request->input('cidade'),
+                'pais' => $request->input('pais'),
+                'telefone' => $request->input('telefone'),
+            ]);
+
+        // Debug the result of the update query
+        //dd($affectedRows);
 
         return redirect()->route('hotel.index')->with('success', 'Hotel atualizado com sucesso!');
     }
+
     public function destroy(hotel $hotel)
     {
         $hotel->delete();
@@ -71,7 +75,7 @@ class HotelController extends Controller
         ]);
 
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
+            'nome' => 'required|string|max:255',
             'endereco' => 'required|string|max:255',
             'cidade' => 'required|string|max:255',
             'pais' => 'required|string|max:255',

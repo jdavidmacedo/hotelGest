@@ -352,12 +352,12 @@ return [
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'Quarto',
-                    'url'  => '#',
+                    'text' => 'QuartoController',
+                    'url'  => '/quarto',
                 ],
                 [
                     'text' => 'Tipo',
-                    'url'  => '/TipoQuarto/createtipo',
+                    'url'  => '/TipoQuarto/create',
                 ],
                 [
                     'text' => 'Preco',
