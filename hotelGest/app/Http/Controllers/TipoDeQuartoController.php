@@ -1,30 +1,32 @@
 <?php
 
+// App\Http\Controllers\TipoQuartoController.php
+
 namespace App\Http\Controllers;
 
-use App\Models\Hotel;
 use App\Models\TipoDeQuarto;
+use App\Models\Hotel;
 use Illuminate\Http\Request;
 
 class TipoDeQuartoController extends Controller
 {
     public function create()
     {
-        $hoteis = Hotel::all();
-        return view('tipos_de_quarto.create', compact('hoteis'));
+        $hotels = Hotel::all();
+        return view('TipoQuarto.createtipo', compact('hotels'));
     }
 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'id_hotel' => 'required|exists:hotel,id',
+            'id_hotel' => 'required|integer|exists:hotel,id',
             'nome' => 'required|string|max:255',
-            'descricao' => 'nullable|string',
+            'descricao' => 'required|string',
         ]);
 
         TipoDeQuarto::create($validatedData);
 
-        return redirect()->route('tipos_de_quarto.create')->with('success', 'Tipo de quarto criado com sucesso!');
+        return redirect()->route('TipoQuarto.create')->with('success', 'Tipo de quarto criado com sucesso!');
     }
 }
 

@@ -11,17 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipos_de_quarto', function (Blueprint $table) {
+        Schema::create('quartos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_hotel');
-            $table->string('nome');
-            $table->text('descricao')->nullable();
+            $table->unsignedBigInteger('id_tipo_de_quarto');
+            $table->integer('numero_do_quarto');
+            $table->enum('status', ['disponivel', 'indisponivel', 'manutencao']);
             $table->timestamps();
-            //$table->foreignId('hotel_id')->constrained('hotel');
 
             $table->foreign('id_hotel')
                 ->references('id')
-                ->on('hotel')
+                ->on('hoteis')
+                ->onDelete('cascade');
+
+            $table->foreign('id_tipo_de_quarto')
+                ->references('id')
+                ->on('tipos_de_quarto')
                 ->onDelete('cascade');
         });
     }
@@ -31,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipos_de_quarto');
+        Schema::dropIfExists('quartos');
     }
 };

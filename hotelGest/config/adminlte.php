@@ -334,7 +334,7 @@ return [
                 ],
                 [
                     'text' => 'Adicionar Hotel',
-                    'url' => '/hotel/create',
+                    'url' => '/hotel/createhotel',
                     'icon' => 'fas fa-fw fa-plus',
                 ],
             ],
@@ -345,12 +345,12 @@ return [
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'Quarto',
-                    'url'  => '#',
+                    'text' => 'QuartoController',
+                    'url'  => '/quarto',
                 ],
                 [
                     'text' => 'Tipo',
-                    'url'  => '/TipoQuarto/createtipo',
+                    'url'  => '/TipoQuarto/create',
                 ],
                 [
                     'text' => 'Preco',

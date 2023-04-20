@@ -11,18 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipos_de_quarto', function (Blueprint $table) {
+        Schema::create('epocas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_hotel');
             $table->string('nome');
-            $table->text('descricao')->nullable();
+            $table->date('data_inicio');
+            $table->date('data_fim');
             $table->timestamps();
-            //$table->foreignId('hotel_id')->constrained('hotel');
-
-            $table->foreign('id_hotel')
-                ->references('id')
-                ->on('hotel')
-                ->onDelete('cascade');
         });
     }
 
@@ -31,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipos_de_quarto');
+        Schema::dropIfExists('epocas');
     }
 };

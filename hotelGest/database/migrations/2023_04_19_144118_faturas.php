@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipos_de_quarto', function (Blueprint $table) {
+        Schema::create('faturas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_hotel');
-            $table->string('nome');
-            $table->text('descricao')->nullable();
+            $table->unsignedBigInteger('id_reserva');
+            $table->string('numero_da_fatura');
+            $table->decimal('valor_total', 10, 2);
+            $table->enum('status', ['pago', 'pendente', 'cancelado'])->default('pendente');
             $table->timestamps();
-            //$table->foreignId('hotel_id')->constrained('hotel');
 
-            $table->foreign('id_hotel')
+            $table->foreign('id_reserva')
                 ->references('id')
-                ->on('hotel')
+                ->on('reservas')
                 ->onDelete('cascade');
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipos_de_quarto');
+        Schema::dropIfExists('faturas');
     }
 };

@@ -11,17 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipos_de_quarto', function (Blueprint $table) {
+        Schema::create('pagamentos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_hotel');
-            $table->string('nome');
-            $table->text('descricao')->nullable();
+            $table->unsignedBigInteger('id_fatura');
+            $table->enum('metodo_de_pagamento', ['cartao_de_credito', 'transferencia_bancaria']);
+            $table->decimal('valor_pago', 10, 2);
             $table->timestamps();
-            //$table->foreignId('hotel_id')->constrained('hotel');
 
-            $table->foreign('id_hotel')
+            $table->foreign('id_fatura')
                 ->references('id')
-                ->on('hotel')
+                ->on('faturas')
                 ->onDelete('cascade');
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipos_de_quarto');
+        Schema::dropIfExists('pagamentos');
     }
 };
