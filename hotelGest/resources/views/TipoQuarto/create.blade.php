@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Adicionar Hotel')
+@section('title', 'Adicionar Tipo de Quarto')
 @extends('adminlte::page')
 
 

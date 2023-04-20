@@ -334,32 +334,34 @@ return [
                 ],
                 [
                     'text' => 'Adicionar Hotel',
-                    'url' => '/hotel/createhotel',
+                    'url' => '/hotel/create',
                     'icon' => 'fas fa-fw fa-plus',
                 ],
             ],
         ],
-
         [
-            'text'    => 'Management-Room',
+            'text'    => 'Tipo de Quarto',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
-                [
-                    'text' => 'QuartoController',
-                    'url'  => '/quarto',
-                ],
-                [
-                    'text' => 'Tipo',
+                                [
+                    'text' => 'Adicionar Tipo',
+                    'icon' => 'fas fa-fw fa-plus',
                     'url'  => '/TipoQuarto/create',
                 ],
-                [
-                    'text' => 'Preco',
-                    'url'  => '#',
-                ],
-
-
             ],
         ],
+        [
+            'text'    => 'Quartos',
+            'icon'    => 'fas fa-fw fa-bed',
+            'submenu' => [
+                                [
+                    'text' => 'Adicionar Quarto',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/quarto/create',
+                ],
+            ],
+        ],
+
     ],
 
     /*

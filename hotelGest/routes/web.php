@@ -22,24 +22,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hotel/createhotel', function () {
-    return view('/hotel/createhotel');
+Route::get('/hotel/create', function () {
+    return view('/hotel/create');
 });
 
 Route::get('/hotel/create', [HotelController::class, 'create'])->name('hotel.create');
 Route::post('/hotel', [HotelController::class, 'store'])->name('hotel.store');
 
+//Hotel
 Route::get('/hotel', [HotelController::class, 'index'])->name('hotel.index');
 Route::get('/hotel/edit/{hotel}', [HotelController::class, 'edit'])->name('hotel.edit');
 Route::put('/hotel/{hotel}', [HotelController::class, 'update'])->name('hotel.update');
 Route::delete('/hotel/{hotel}', [HotelController::class, 'destroy'])->name('hotel.destroy');
 
+//Tipo de QUarto
 Route::get('/TipoQuarto/create', [TipoDeQuartoController::class, 'create'])->name('TipoQuarto.create');
 Route::post('/TipoQuarto', [TipoDeQuartoController::class, 'store'])->name('TipoQuarto.store');
 
-Route::get('/quarto/create', [TipoDeQuartoController::class, 'create'])->name('quarto.create');
-Route::get('/quarto', [QuartoController::class, 'store'])->name('quarto.store');
 
+//Quarto
 
 
 Auth::routes();

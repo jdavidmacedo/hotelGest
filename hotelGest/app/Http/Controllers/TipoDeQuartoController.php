@@ -13,7 +13,7 @@ class TipoDeQuartoController extends Controller
     public function create()
     {
         $hotels = Hotel::all();
-        return view('TipoQuarto.createtipo', compact('hotels'));
+        return view('TipoQuarto.create', compact('hotels'));
     }
 
     public function store(Request $request)
