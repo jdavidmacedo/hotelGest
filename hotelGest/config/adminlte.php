@@ -311,13 +311,6 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -329,60 +322,46 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        ['header' => 'Management'],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text' => 'Hotel',
+            'icon' => 'fas fa-fw fa-hotel',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Listar Hotéis',
+                    'url' => '/hotel',
+                    'icon' => 'fas fa-fw fa-list',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Adicionar Hotel',
+                    'url' => '/hotel/create',
+                    'icon' => 'fas fa-fw fa-plus',
                 ],
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'    => 'Tipo de Quarto',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                                [
+                    'text' => 'Adicionar Tipo',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/TipoQuarto/create',
+                ],
+            ],
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text'    => 'Quartos',
+            'icon'    => 'fas fa-fw fa-bed',
+            'submenu' => [
+                                [
+                    'text' => 'Adicionar Quarto',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/quarto/create',
+                ],
+            ],
         ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+
     ],
 
     /*
