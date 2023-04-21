@@ -21,6 +21,35 @@ use App\Http\Controllers\QuartoController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/hotel/createhotel', function () {
+    return view('hotel.createhotel');
+});
+Route::get('/createhotel', function () {
+
+    $nome=request('nome');
+    $email=request('email');
+    $endereco=request('endereco');
+    $cidade=request('cidade');
+    $pais=request('pais');
+    $telefone=request('telefone');
+
+    DB::table('hotel')-> insert([
+        'name'=> $nome,
+        'email'=>$email,
+        'endereco'=>$endereco,
+        'pais'=>$pais,
+        'cidade'=>$cidade,
+        'telefone'=>$telefone,
+
+    ]);
+
+
+    return redirect('/hotel/createhotel')-> with('success', 'Form submitted successfully');
+});
+
+
+
+
 
 //Hotel
 Route::get('/hotel/create', [HotelController::class, 'create'])->name('hotel.create');
