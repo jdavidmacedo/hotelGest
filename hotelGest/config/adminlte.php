@@ -343,7 +343,7 @@ return [
             'text'    => 'Tipo de Quarto',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
-                                [
+                [
                     'text' => 'Adicionar Tipo',
                     'icon' => 'fas fa-fw fa-plus',
                     'url'  => '/TipoQuarto/create',
@@ -354,10 +354,16 @@ return [
             'text'    => 'Quartos',
             'icon'    => 'fas fa-fw fa-bed',
             'submenu' => [
-                                [
-                    'text' => 'Adicionar Quarto',
+
+                [
+                    'text' => 'Listar quartos',
                     'icon' => 'fas fa-fw fa-plus',
                     'url'  => '/quarto',
+                ],
+                [
+                    'text' => 'Adicionar Quarto',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/quarto/create',
                 ],
             ],
         ],

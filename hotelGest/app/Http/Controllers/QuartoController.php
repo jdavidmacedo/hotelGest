@@ -11,6 +11,12 @@ class QuartoController extends Controller
 {
 
 
+    public function index()
+    {
+        $quartos = Quarto::all();
+        return view('quartos.index', compact('quartos'));
+    }
+
     public function create()
     {
         $hoteis = Hotel::all();
@@ -35,6 +41,29 @@ class QuartoController extends Controller
 
         return redirect()->route('quartos.create')->with('success', 'Quarto criado com sucesso!');
     }
+
+    public function edit($id)
+    {
+        $quarto = Quarto::findOrFail($id);
+        $hoteis = Hotel::all();
+        $Tipos = TipoDeQuarto::all();
+        return view('quartos.edit', compact('quarto', 'hoteis', 'Tipos'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $quarto = Quarto::findOrFail($id);
+        $quarto->update($request->all());
+        return redirect()->route('quartos.index')->with('success', 'Quarto atualizado com sucesso!');
+    }
+
+    public function destroy($id)
+    {
+        $quarto = Quarto::findOrFail($id);
+        $quarto->delete();
+        return redirect()->route('quartos.index')->with('success', 'Quarto removido com sucesso!');
+    }
+
 
 
 

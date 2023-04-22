@@ -37,8 +37,12 @@ Route::post('/TipoQuarto', [TipoDeQuartoController::class, 'store'])->name('Tipo
 
 //Quarto
 //Route::resource('/quarto', QuartoController::class);
-Route::get('/quarto', [QuartoController::class, 'create'])->name('quartos.create');
+Route::get('/quarto/create', [QuartoController::class, 'create'])->name('quartos.create');
 Route::post('/quarto', [QuartoController::class, 'store'])->name('quartos.store');
+Route::get('/quarto', [QuartoController::class, 'index'])->name('quartos.index');
+Route::get('/quarto/edit/{quarto}', [QuartoController::class, 'edit'])->name('quartos.edit');
+Route::put('/quarto/{quarto}', [QuartoController::class, 'update'])->name('quartos.update');
+Route::delete('/quarto/{quarto}', [QuartoController::class, 'destroy'])->name('quartos.destroy');
 
 
 
