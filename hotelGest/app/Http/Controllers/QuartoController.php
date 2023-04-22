@@ -9,11 +9,7 @@ use Illuminate\Http\Request;
 
 class QuartoController extends Controller
 {
-    public function index()
-    {
-        $quartos = Quarto::all();
-        return view('quartos.index', compact('quartos'));
-    }
+
 
     public function create()
     {
@@ -30,7 +26,6 @@ class QuartoController extends Controller
 
             'id_hotel' => 'required|integer|exists:hotel,id',
             'id_tipo_quartos' => 'required|integer|exists:tipo_de_quartos,id',
-            'numero' => 'required|integer',
             'numero_do_quarto' => 'required|integer',
             'status' => 'required|in:disponivel,indisponivel,manutencao',
         ]);
@@ -42,22 +37,5 @@ class QuartoController extends Controller
     }
 
 
-    public function edit(Quarto $quarto)
-    {
-        $hoteis = Hotel::all();
-        $tipos_quartos = TipoDeQuarto::all();
-        return view('quartos.edit', compact('quarto', 'hoteis', 'tipos_quartos'));
-    }
 
-    public function update(Request $request, Quarto $quarto)
-    {
-        $quarto->update($request->all());
-        return redirect()->route('quartos.index');
-    }
-
-    public function destroy(Quarto $quarto)
-    {
-        $quarto->delete();
-        return redirect()->route('quartos.index');
-    }
 }
