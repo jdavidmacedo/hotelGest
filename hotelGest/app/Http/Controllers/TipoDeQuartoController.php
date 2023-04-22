@@ -16,6 +16,12 @@ class TipoDeQuartoController extends Controller
         return view('TipoQuarto.create', compact('hotels'));
     }
 
+    public function index()
+    {
+        $Tipos = TipoDeQuarto::all();
+        return view('hotel.index', compact('Tipos'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([

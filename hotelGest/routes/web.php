@@ -36,6 +36,10 @@ Route::post('/TipoQuarto', [TipoDeQuartoController::class, 'store'])->name('Tipo
 
 
 //Quarto
+//Route::resource('/quarto', QuartoController::class);
+Route::get('/quarto', [QuartoController::class, 'create'])->name('quartos.create');
+Route::post('/quarto', [QuartoController::class, 'store'])->name('quartos.store');
+
 
 
 Auth::routes();

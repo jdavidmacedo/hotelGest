@@ -357,7 +357,7 @@ return [
                                 [
                     'text' => 'Adicionar Quarto',
                     'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/quarto/create',
+                    'url'  => '/quarto',
                 ],
             ],
         ],

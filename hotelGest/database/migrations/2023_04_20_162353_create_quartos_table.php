@@ -14,16 +14,19 @@ return new class extends Migration
         Schema::create('quartos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_hotel');
-            $table->string('nome');
-            $table->integer('numero');
-            $table->integer('andar');
-            $table->float('preco');
-            $table->string('descricao');
+            $table->unsignedBigInteger('id_tipo_quartos');
+            $table->integer('numero_do_quarto');
+            $table->enum('status', ['disponivel', 'indisponivel', 'manutencao']);
             $table->timestamps();
 
             $table->foreign('id_hotel')
                 ->references('id')
                 ->on('hotel')
+                ->onDelete('cascade');
+
+            $table->foreign('id_tipo_quartos')
+                ->references('id')
+                ->on('tipo_quartos')
                 ->onDelete('cascade');
         });
     }
