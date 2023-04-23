@@ -366,6 +366,25 @@ return [
                     'url'  => '/quarto/create',
                 ],
             ],
+
+        ],
+        [
+            'text'    => 'Clientes',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+
+                [
+                    'text' => 'Listar quartos',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/quarto',
+                ],
+                [
+                    'text' => 'Adicionar Clientes',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/cliente/create',
+                ],
+            ],
+
         ],
 
     ],

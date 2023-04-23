@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\hotelController;
 use App\Http\Controllers\QuartoController;
+use App\Http\Controllers\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,13 +37,17 @@ Route::post('/TipoQuarto', [TipoDeQuartoController::class, 'store'])->name('Tipo
 
 
 //Quarto
-//Route::resource('/quarto', QuartoController::class);
 Route::get('/quarto/create', [QuartoController::class, 'create'])->name('quartos.create');
 Route::post('/quarto', [QuartoController::class, 'store'])->name('quartos.store');
 Route::get('/quarto', [QuartoController::class, 'index'])->name('quartos.index');
 Route::get('/quarto/edit/{quarto}', [QuartoController::class, 'edit'])->name('quartos.edit');
 Route::put('/quarto/{quarto}', [QuartoController::class, 'update'])->name('quartos.update');
 Route::delete('/quarto/{quarto}', [QuartoController::class, 'destroy'])->name('quartos.destroy');
+
+//Cliente
+Route::get('/cliente/create', [ClienteController::class, 'create'])->name('cliente.create');
+Route::post('/cliente', [ClienteController::class, 'store'])->name('cliente.store');
+
 
 
 
