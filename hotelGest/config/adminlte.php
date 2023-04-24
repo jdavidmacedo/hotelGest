@@ -376,12 +376,66 @@ return [
                 [
                     'text' => 'Listar quartos',
                     'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/quarto',
+                    'url'  => '/cliente',
                 ],
                 [
                     'text' => 'Adicionar Clientes',
                     'icon' => 'fas fa-fw fa-plus',
                     'url'  => '/cliente/create',
+                ],
+            ],
+
+        ],
+        [
+            'text'    => 'Epocas',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+
+                [
+                    'text' => 'Listar Epocas',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/epoca',
+                ],
+                [
+                    'text' => 'Adicionar Epocas',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/epoca/create',
+                ],
+            ],
+
+        ],
+        [
+            'text'    => 'Preço',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+
+                [
+                    'text' => 'Listar Preço',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/',
+                ],
+                [
+                    'text' => 'Adicionar Preço',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/',
+                ],
+            ],
+
+        ],
+        [
+            'text'    => 'Reservas',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+
+                [
+                    'text' => 'Listar Reservas',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/',
+                ],
+                [
+                    'text' => 'Adicionar Reservas',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/',
                 ],
             ],
 
