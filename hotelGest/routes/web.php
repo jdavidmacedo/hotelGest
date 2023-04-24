@@ -9,6 +9,8 @@ use App\Http\Controllers\QuartoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EpocaController;
 use App\Http\Controllers\PrecoController;
+use App\Http\Controllers\ReservaController;
+
 
 
 
@@ -69,6 +71,12 @@ Route::delete('/epoca/{epoca}', [EpocaController::class, 'destroy'])->name('epoc
 
 Route::get('/preco/create', [PrecoController::class, 'create'])->name('preco.create');
 Route::post('/preco/', [PrecoController::class, 'store'])->name('preco.store');
+
+//Reserva
+
+Route::get('/reserva/create', [ReservaController::class, 'create'])->name('reserva.create');
+Route::post('/reserva/', [ReservaController::class, 'store'])->name('reserva.store');
+
 
 
 Auth::routes();

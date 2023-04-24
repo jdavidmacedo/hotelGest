@@ -430,12 +430,12 @@ return [
                 [
                     'text' => 'Listar Reservas',
                     'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/',
+                    'url'  => '/reserva',
                 ],
                 [
                     'text' => 'Adicionar Reservas',
                     'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/',
+                    'url'  => '/reserva/create',
                 ],
             ],
 
