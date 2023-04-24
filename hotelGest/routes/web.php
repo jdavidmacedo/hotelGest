@@ -8,6 +8,8 @@ use App\Http\Controllers\hotelController;
 use App\Http\Controllers\QuartoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EpocaController;
+use App\Http\Controllers\PrecoController;
+
 
 
 /*
@@ -64,6 +66,9 @@ Route::put('/epoca/{epoca}', [EpocaController::class, 'update'])->name('epoca.up
 Route::delete('/epoca/{epoca}', [EpocaController::class, 'destroy'])->name('epoca.destroy');
 
 //Preço
+
+Route::get('/preco/create', [PrecoController::class, 'create'])->name('preco.create');
+Route::post('/preco/', [PrecoController::class, 'store'])->name('preco.store');
 
 
 Auth::routes();

@@ -29,7 +29,7 @@
             @foreach($quartos as $quarto)
                 <tr>
                     <td>{{ $quarto->hotel ? $quarto->hotel->nome : '' }}</td>
-                    <td>{{ $quarto->tipo_quartos->nome }}</td>
+                    <td>{{ $quarto->tipo_quartos ? $quarto->tipo_quartos->nome : '' }}</td>
                     <td>{{ $quarto->numero_do_quarto }}</td>
                     <td>{{ $quarto->status }}</td>
                     <td>

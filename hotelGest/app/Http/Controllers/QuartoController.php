@@ -31,7 +31,7 @@ class QuartoController extends Controller
 
 
             'id_hotel' => 'required|integer|exists:hotel,id',
-            'id_tipo_quartos' => 'required|integer|exists:tipo_de_quartos,id',
+            'id_tipo_quartos' => 'required|integer|exists:tipo_quartos,id',
             'numero_do_quarto' => 'required|integer',
             'status' => 'required|in:disponivel,indisponivel,manutencao',
         ]);

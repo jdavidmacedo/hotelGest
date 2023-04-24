@@ -25,7 +25,7 @@
                     <input type="date" name="data_fim" id="data_fim" class="form-control" value="{{ $epoca->data_fim }}" required>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="submit" class="btn btn-primary">Atualizar</button>
                     <a href="{{ route('epoca.index') }}" class="btn btn-default">Cancelar</a>
                 </div>
             </form>

@@ -412,12 +412,12 @@ return [
                 [
                     'text' => 'Listar Preço',
                     'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/',
+                    'url'  => '/preco',
                 ],
                 [
                     'text' => 'Adicionar Preço',
                     'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/',
+                    'url'  => '/preco/create',
                 ],
             ],
 

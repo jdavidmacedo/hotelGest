@@ -46,7 +46,7 @@
                 <input type="text" name="telefone" id="telefone" class="form-control" value="{{ $hotel->telefone }}" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-primary">Atualizar</button>
         </form>
     </div>
 @endsection

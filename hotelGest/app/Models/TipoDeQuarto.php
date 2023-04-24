@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class TipoDeQuarto extends Model
 {
     use HasFactory;
+    protected $table = 'tipo_quartos';
 
     protected $fillable = [
         'id_hotel',

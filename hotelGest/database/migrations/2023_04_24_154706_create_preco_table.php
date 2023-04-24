@@ -13,7 +13,20 @@ return new class extends Migration
     {
         Schema::create('preco', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_tipo_quartos');
+            $table->unsignedBigInteger('id_epoca');
+            $table->decimal('preco', 10, 2);
             $table->timestamps();
+
+            $table->foreign('id_tipo_quartos')
+                ->references('id')
+                ->on('tipo_quartos')
+                ->onDelete('cascade');
+
+            $table->foreign('id_epoca')
+                ->references('id')
+                ->on('epocas')
+                ->onDelete('cascade');
         });
     }
 
