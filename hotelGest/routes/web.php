@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\hotelController;
 use App\Http\Controllers\QuartoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\EpocaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +54,16 @@ Route::get('/cliente/edit/{cliente}', [ClienteController::class, 'edit'])->name(
 Route::put('/cliente/{cliente}', [ClienteController::class, 'update'])->name('cliente.update');
 Route::delete('/cliente/{cliente}', [ClienteController::class, 'destroy'])->name('cliente.destroy');
 
+//Epoca
 
+Route::get('/epoca/create', [EpocaController::class, 'create'])->name('epoca.create');
+Route::post('/epoca/', [EpocaController::class, 'store'])->name('epoca.store');
+Route::get('/epoca', [EpocaController::class, 'index'])->name('epoca.index');
+Route::get('/epoca/edit/{epoca}', [EpocaController::class, 'edit'])->name('epoca.edit');
+Route::put('/epoca/{epoca}', [EpocaController::class, 'update'])->name('epoca.update');
+Route::delete('/epoca/{epoca}', [EpocaController::class, 'destroy'])->name('epoca.destroy');
+
+//Preço
 
 
 Auth::routes();
