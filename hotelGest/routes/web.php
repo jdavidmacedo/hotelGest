@@ -76,7 +76,10 @@ Route::post('/preco/', [PrecoController::class, 'store'])->name('preco.store');
 
 Route::get('/reserva/create', [ReservaController::class, 'create'])->name('reserva.create');
 Route::post('/reserva/', [ReservaController::class, 'store'])->name('reserva.store');
-
+Route::get('/reserva', [ReservaController::class, 'index'])->name('reserva.index');
+Route::get('/reserva/edit/{reserva}',[ReservaController::class, 'edit'])->name('reserva.edit');
+Route::put('/reserva/{reserva}', [ReservaController::class, 'update'])->name('reserva.update');
+Route::delete('/reserva/{reserva}', [ReservaController::class, 'destroy'])->name('reserva.destroy');
 
 
 Auth::routes();
