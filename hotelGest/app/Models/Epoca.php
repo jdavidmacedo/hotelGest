@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Epoca extends Model
 {
     use HasFactory;
+    protected $table = 'epoca';
 
     protected $fillable = [
         'nome',
