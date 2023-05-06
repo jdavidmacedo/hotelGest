@@ -52,7 +52,6 @@ class ClienteController extends Controller
             'cidade' => 'required|string|max:255',
             'pais' => 'required|string|max:255',
         ]);
-        // ...
 
         $cliente->update($validatedData);
         return redirect()->route('cliente.index')->with('success', 'Cliente atualizado com sucesso!');

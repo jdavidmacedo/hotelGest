@@ -54,7 +54,7 @@ Route::delete('/quarto/{quarto}', [QuartoController::class, 'destroy'])->name('q
 Route::get('/cliente/create', [ClienteController::class, 'create'])->name('cliente.create');
 Route::post('/cliente', [ClienteController::class, 'store'])->name('cliente.store');
 Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente.index');
-Route::get('/cliente/edit/{cliente}', [ClienteController::class, 'edit'])->name('cliente.edit');
+Route::get('/cliente/edit/{cliente}',[ClienteController::class, 'edit'])->name('cliente.edit');
 Route::put('/cliente/{cliente}', [ClienteController::class, 'update'])->name('cliente.update');
 Route::delete('/cliente/{cliente}', [ClienteController::class, 'destroy'])->name('cliente.destroy');
 

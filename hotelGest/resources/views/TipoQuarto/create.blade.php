@@ -15,15 +15,6 @@
         <form action="{{ route('TipoQuarto.store') }}" method="post">
             @csrf
             <div class="form-group">
-                <label for="id_hotel">Hotel:</label>
-                <select name="id_hotel" id="id_hotel" class="form-control" required>
-                    <option value="">Selecione um hotel</option>
-                    @foreach ($hotels as $hotel)
-                        <option value="{{ $hotel->id }}">{{ $hotel->nome }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" id="nome" class="form-control" required>
             </div>

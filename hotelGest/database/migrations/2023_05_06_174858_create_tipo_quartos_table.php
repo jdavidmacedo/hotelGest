@@ -13,15 +13,9 @@ return new class extends Migration
     {
         Schema::create('tipo_quartos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_hotel');
             $table->string('nome');
             $table->text('descricao')->nullable();
             $table->timestamps();
-
-            $table->foreign('id_hotel')
-                ->references('id')
-                ->on('hotel')
-                ->onDelete('cascade');
         });
     }
 
