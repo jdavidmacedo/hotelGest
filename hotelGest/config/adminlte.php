@@ -344,6 +344,11 @@ return [
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
+                    'text' => 'Listar Tipo',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/TipoQuarto',
+                ],
+                [
                     'text' => 'Adicionar Tipo',
                     'icon' => 'fas fa-fw fa-plus',
                     'url'  => '/TipoQuarto/create',
@@ -374,7 +379,7 @@ return [
             'submenu' => [
 
                 [
-                    'text' => 'Listar quartos',
+                    'text' => 'Listar Clientes',
                     'icon' => 'fas fa-fw fa-plus',
                     'url'  => '/cliente',
                 ],

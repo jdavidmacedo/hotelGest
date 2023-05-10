@@ -14,13 +14,8 @@ class TipoDeQuarto extends Model
     protected $table = 'tipo_quartos';
 
     protected $fillable = [
-       // 'id_hotel',
         'nome',
         'descricao',
     ];
 
-    /*public function hotel()
-    {
-        return $this->belongsTo(Hotel::class, 'id_hotel');
-    }*/
 }

@@ -9,6 +9,15 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{ route('reserva.create') }}" class="btn btn-primary">Criar Reserva</a>
+
+                    @if(session('success'))
+                        <div class="alert alert-success mt-3">
+                            {{ session('success') }}
+                        </div>
+                    @endif
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>

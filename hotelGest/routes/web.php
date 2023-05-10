@@ -40,6 +40,11 @@ Route::delete('/hotel/{hotel}', [HotelController::class, 'destroy'])->name('hote
 //Tipo de Quarto
 Route::get('/TipoQuarto/create', [TipoDeQuartoController::class, 'create'])->name('TipoQuarto.create');
 Route::post('/TipoQuarto', [TipoDeQuartoController::class, 'store'])->name('TipoQuarto.store');
+Route::get('/TipoQuarto', [TipoDeQuartoController::class, 'index'])->name('TipoQuarto.index');
+Route::get('/TipoQuarto/edit/{tipoQuarto}', [TipoDeQuartoController::class, 'edit'])->name('TipoQuarto.edit');
+Route::put('/TipoQuarto/{tipoQuarto}', [TipoDeQuartoController::class, 'update'])->name('TipoQuarto.update');
+Route::delete('/TipoQuarto/{tipoQuarto}', [TipoDeQuartoController::class, 'destroy'])->name('TipoQuarto.destroy');
+
 
 
 //Quarto

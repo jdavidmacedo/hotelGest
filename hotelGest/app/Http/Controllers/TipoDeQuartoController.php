@@ -5,7 +5,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\TipoDeQuarto;
-use App\Models\Hotel;
 use Illuminate\Http\Request;
 
 class TipoDeQuartoController extends Controller
@@ -18,7 +17,7 @@ class TipoDeQuartoController extends Controller
     public function index()
     {
         $Tipos = TipoDeQuarto::all();
-        return view('hotel.index', compact('Tipos'));
+        return view('TipoQuarto.index', compact('Tipos'));
     }
 
     public function store(Request $request)
@@ -31,6 +30,21 @@ class TipoDeQuartoController extends Controller
         TipoDeQuarto::create($validatedData);
 
         return redirect()->route('TipoQuarto.create')->with('success', 'Tipo de quarto criado com sucesso!');
+    }
+    public function edit(TipoDeQuarto $tipoQuarto)
+    {
+        return view('TipoQuarto.edit', compact('tipoQuarto'));
+    }
+    public function update(Request $request, TipoDeQuarto $tipoQuarto)
+    {
+        $tipoQuarto->update($request->all());
+        return redirect()->route('TipoQuarto.index')->with('success', 'Tipo de quarto atualizado com sucesso.');
+    }
+
+    public function destroy(TipoDeQuarto $tipoQuarto)
+    {
+        $tipoQuarto->delete();
+        return redirect()->route('TipoQuarto.index')->with('success', 'Tipo de quarto excluído com sucesso.');
     }
 }
 
