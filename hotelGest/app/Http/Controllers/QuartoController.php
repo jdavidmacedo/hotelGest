@@ -28,13 +28,14 @@ class QuartoController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-
-
             'id_hotel' => 'required|integer|exists:hotel,id',
             'id_tipo_quartos' => 'required|integer|exists:tipo_quartos,id',
             'numero_do_quarto' => 'required|integer',
             'status' => 'required|in:disponivel,indisponivel,manutencao',
+            'descricao' => 'nullable|string',
+            'piso' => 'nullable|string',
         ]);
+
 
 
         Quarto::create($validatedData);
@@ -42,24 +43,24 @@ class QuartoController extends Controller
         return redirect()->route('quartos.create')->with('success', 'Quarto criado com sucesso!');
     }
 
-    public function edit($id)
+    public function edit(Quarto $quarto)
     {
-        $quarto = Quarto::findOrFail($id);
+        //$quarto = Quarto::findOrFail($id);
         $hoteis = Hotel::all();
         $Tipos = TipoDeQuarto::all();
         return view('quartos.edit', compact('quarto', 'hoteis', 'Tipos'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Quarto $quarto)
     {
-        $quarto = Quarto::findOrFail($id);
+        //$quarto = Quarto::findOrFail($id);
         $quarto->update($request->all());
         return redirect()->route('quartos.index')->with('success', 'Quarto atualizado com sucesso!');
     }
 
-    public function destroy($id)
+    public function destroy(Quarto $quarto)
     {
-        $quarto = Quarto::findOrFail($id);
+        //$quarto = Quarto::findOrFail($id);
         $quarto->delete();
         return redirect()->route('quartos.index')->with('success', 'Quarto removido com sucesso!');
     }

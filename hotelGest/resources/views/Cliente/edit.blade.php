@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" name="email"  class="form-control" value="{{ $cliente->email }}" required>
+                    <input type="email" name="email" class="form-control" value="{{ $cliente->email }}" required>
                 </div>
                 <div class="form-group">
                     <label for="telefone">Telefone:</label>
@@ -30,15 +30,19 @@
                 </div>
                 <div class="form-group">
                     <label for="endereco">Endereço:</label>
-                    <input type="text" name="endereco"  class="form-control" value="{{ $cliente->endereco }}" required>
+                    <input type="text" name="endereco" class="form-control" value="{{ $cliente->endereco }}" required>
                 </div>
                 <div class="form-group">
-                    <label for="pais">Pais:</label>
-                    <input type="text" name="pais"  class="form-control" value="{{ $cliente->pais }}" required>
+                    <label for="pais">País:</label>
+                    <input type="text" name="pais" class="form-control" value="{{ $cliente->pais }}" required>
                 </div>
                 <div class="form-group">
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" name="cidade" class="form-control" value="{{ $cliente->cidade }}" required>
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" name="data_nascimento" class="form-control" value="{{ $cliente->data_nascimento }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="NIF">NIF:</label>
+                    <input type="text" name="NIF" class="form-control" value="{{ $cliente->NIF }}" required>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Atualizar</button>

@@ -23,6 +23,8 @@
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Capacidade Máxima</th>
                     <th>Ações</th>
                 </tr>
                 </thead>
@@ -32,6 +34,8 @@
                         <td>{{ $TipoQuarto->id }}</td>
                         <td>{{ $TipoQuarto->nome }}</td>
                         <td>{{ $TipoQuarto->descricao }}</td>
+                        <td>{{ $TipoQuarto->preco }}</td>
+                        <td>{{ $TipoQuarto->capacidade_maxima }}</td>
                         <td>
                             <a href="{{ route('TipoQuarto.edit',$TipoQuarto->id) }}" class="btn btn-sm btn-primary">Editar</a>
                             <form action="{{ route('TipoQuarto.destroy', $TipoQuarto->id) }}" method="POST" style="display: inline-block;">

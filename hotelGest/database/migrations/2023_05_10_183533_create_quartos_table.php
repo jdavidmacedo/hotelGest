@@ -17,6 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('id_tipo_quartos');
             $table->integer('numero_do_quarto');
             $table->enum('status', ['disponivel', 'indisponivel', 'manutencao']);
+            $table->text('descricao')->nullable(); // Adiciona a coluna "descricao" como texto e permite valores nulos
+            $table->string('piso')->nullable(); // Adiciona a coluna "piso" como string e permite valores nulos
             $table->timestamps();
 
             $table->foreign('id_hotel')

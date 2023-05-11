@@ -20,9 +20,11 @@ class ClienteController extends Controller
             'email' => 'required|email|unique:cliente,email|max:255',
             'telefone' => 'required|string',
             'endereco' => 'required|string|max:255',
-            'cidade' => 'required|string|max:255',
             'pais' => 'required|string|max:255',
+            'data_nascimento' => 'date',
+            'NIF' => 'string|max:255',
         ]);
+
 
         Cliente::create($validatedData);
 
@@ -43,14 +45,16 @@ class ClienteController extends Controller
     public function update(Request $request, Cliente $cliente)
     {
         // regras de validação aqui
+
         $validatedData = $request->validate([
             'nome' => 'required|string|max:255',
             'sobrenome' => 'required|string|max:255',
             'email' => 'required|email|unique:cliente,email|max:255',
             'telefone' => 'required|string',
             'endereco' => 'required|string|max:255',
-            'cidade' => 'required|string|max:255',
             'pais' => 'required|string|max:255',
+            'data_nascimento' => 'date',
+            'NIF' => 'string|max:255',
         ]);
 
         $cliente->update($validatedData);

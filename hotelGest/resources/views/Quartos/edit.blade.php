@@ -43,7 +43,14 @@
                         <option value="manutencao" {{ $quarto->status == 'manutencao' ? 'selected' : '' }}>Manutenção</option>
                     </select>
                 </div>
-                <!-- Adicione os outros campos aqui -->
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea name="descricao" id="descricao" class="form-control">{{ $quarto->descricao }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="piso">Piso:</label>
+                    <input type="text" name="piso" id="piso" class="form-control" value="{{ $quarto->piso }}">
+                </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Atualizar</button>
                     <a href="{{ route('quartos.index') }}" class="btn btn-default">Cancelar</a>

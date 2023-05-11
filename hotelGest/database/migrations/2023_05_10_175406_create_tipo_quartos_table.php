@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cliente', function (Blueprint $table) {
+        Schema::create('tipo_quartos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('sobrenome');
-            $table->string('email', 191)->unique();
-            $table->string('telefone');
-            $table->string('endereco');
-            $table->string('cidade');
-            $table->string('pais');
+            $table->text('descricao')->nullable();
+            $table->decimal('preco', 10, 2)->nullable(); // Adiciona a coluna "preco" como um número decimal com 10 dígitos no total e 2 casas decimais
+            $table->integer('capacidade_maxima')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cliente');
+        Schema::dropIfExists('tipo_quartos');
     }
 };

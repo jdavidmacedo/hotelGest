@@ -16,6 +16,8 @@ class TipoDeQuarto extends Model
     protected $fillable = [
         'nome',
         'descricao',
+        'preco',
+        'capacidade_maxima'
     ];
 
 }

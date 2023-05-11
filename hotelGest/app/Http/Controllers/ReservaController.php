@@ -39,16 +39,16 @@ class ReservaController extends Controller
         return view('reserva.index', compact('reservas'));
     }
 
-    public function edit($id)
+    public function edit(Reserva $reserva )
     {
-        $reserva = Reserva::findOrFail($id);
+        //$reserva = Reserva::findOrFail($id);
         $clientes = Cliente::all();
         $hoteis = Hotel::all();
         $quartos = Quarto::all();
         return view('reserva.edit', compact('reserva', 'clientes', 'hoteis', 'quartos'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Reserva $reserva)
     {
         $validatedData = $request->validate([
             'id_cliente' => 'required|integer|exists:cliente,id',
@@ -59,16 +59,16 @@ class ReservaController extends Controller
             'status' => 'required|in:reservado,cancelado,concluido',
         ]);
 
-        $reserva = Reserva::findOrFail($id);
+        //$reserva = Reserva::findOrFail($id);
         $reserva->update($validatedData);
 
         return redirect()->route('reserva.index')->with('success', 'Atualizado com sucesso!');
     }
 
 
-    public function destroy($id)
+    public function destroy(Reserva $reserva)
     {
-        $reserva = Reserva::findOrFail($id);
+        //$reserva = Reserva::findOrFail($id);
         $reserva->delete();
         return redirect()->route('reserva.index')->with('success', 'Reserva excluída com sucesso!');
     }

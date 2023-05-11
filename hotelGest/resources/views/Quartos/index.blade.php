@@ -22,6 +22,8 @@
                 <th>Tipo de Quarto</th>
                 <th>Número do Quarto</th>
                 <th>Status</th>
+                <th>Descrição</th>
+                <th>Piso</th>
                 <th>Ações</th>
             </tr>
             </thead>
@@ -32,6 +34,8 @@
                     <td>{{ $quarto->tipo_quartos ? $quarto->tipo_quartos->nome : '' }}</td>
                     <td>{{ $quarto->numero_do_quarto }}</td>
                     <td>{{ $quarto->status }}</td>
+                    <td>{{ $quarto->descricao }}</td>
+                    <td>{{ $quarto->piso }}</td>
                     <td>
                         <a href="{{ route('quartos.edit', $quarto->id) }}" class="btn btn-sm btn-info">Editar</a>
                         <form action="{{ route('quartos.destroy', $quarto->id) }}" method="post" style="display:inline">

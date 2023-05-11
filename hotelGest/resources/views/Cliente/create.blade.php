@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" name="email"  class="form-control" required>
+                    <input type="email" name="email" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="telefone">Telefone:</label>
@@ -29,15 +29,19 @@
                 </div>
                 <div class="form-group">
                     <label for="endereco">Endereço:</label>
-                    <input type="text" name="endereco"  class="form-control" required>
+                    <input type="text" name="endereco" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="pais">Pais:</label>
-                    <input type="text" name="pais"  class="form-control" required>
+                    <label for="pais">País:</label>
+                    <input type="text" name="pais" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" name="cidade" class="form-control" required>
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" name="data_nascimento" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="NIF">NIF:</label>
+                    <input type="text" name="NIF" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Salvar</button>

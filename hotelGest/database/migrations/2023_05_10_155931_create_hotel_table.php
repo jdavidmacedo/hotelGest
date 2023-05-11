@@ -16,13 +16,16 @@ return new class extends Migration
             $table->string('nome');
             $table->string('endereco');
             $table->string('cidade');
-            $table->string('pais');
+            $table->string('codigo_postal');
             $table->string('telefone');
-            $table->string('email');
+            $table->string('pais');
+            $table->integer('estrelas');
+            $table->string('email', 191)->unique();
+		    $table->text('descricao')->nullable();
             $table->timestamps();
         });
-    }
 
+    }
     /**
      * Reverse the migrations.
      */

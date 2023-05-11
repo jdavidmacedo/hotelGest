@@ -32,7 +32,7 @@
                             <form action="{{ route('epoca.destroy', $epoca) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Excluir</button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este quarto?')">Excluir</button>
                             </form>
                         </td>
                     </tr>

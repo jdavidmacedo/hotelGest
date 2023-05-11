@@ -25,6 +25,8 @@ class TipoDeQuartoController extends Controller
         $validatedData = $request->validate([
             'nome' => 'required|string|max:255',
             'descricao' => 'required|string',
+            'preco' => 'nullable|numeric|min:0',
+            'capacidade_maxima' => 'nullable|integer|min:0',
         ]);
 
         TipoDeQuarto::create($validatedData);

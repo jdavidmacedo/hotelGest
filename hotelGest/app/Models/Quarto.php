@@ -9,7 +9,13 @@ class Quarto extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id_hotel', 'id_tipo_quartos', 'numero_do_quarto', 'status'];
+    protected $fillable = ['id_hotel',
+        'id_tipo_quartos',
+        'numero_do_quarto',
+        'status',
+        'descricao',
+        'piso'
+    ];
 
     public function hotel()
     {

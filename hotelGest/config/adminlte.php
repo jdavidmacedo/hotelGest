@@ -356,6 +356,22 @@ return [
             ],
         ],
         [
+            'text'    => 'Tipo de Quarto Epoca',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/',
+                ],
+                [
+                    'text' => 'Adicionar',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/',
+                ],
+            ],
+        ],
+        [
             'text'    => 'Quartos',
             'icon'    => 'fas fa-fw fa-bed',
             'submenu' => [

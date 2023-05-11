@@ -15,7 +15,8 @@ class Cliente extends Model
         'email',
         'telefone',
         'endereco',
-        'cidade',
         'pais',
+        'data_nascimento',
+        'NIF'
     ];
 }

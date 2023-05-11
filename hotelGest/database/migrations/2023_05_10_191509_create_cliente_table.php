@@ -11,10 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipo_quartos', function (Blueprint $table) {
+        Schema::create('cliente', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->text('descricao')->nullable();
+            $table->string('sobrenome');
+            $table->string('email', 191)->unique();
+            $table->string('telefone');
+            $table->string('endereco');
+            $table->string('pais');
+            $table->date('data_nascimento')->nullable();
+            $table->string('NIF')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipo_quartos');
+        Schema::dropIfExists('cliente');
     }
 };
