@@ -1,23 +1,22 @@
 <?php
-
-namespace App\Models;
-// App\Models\TipoQuarto.php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TipoDeQuarto extends Model
+class Cliente extends Model
 {
+    protected $table = 'cliente';
     use HasFactory;
-    protected $table = 'tipo_quartos';
 
     protected $fillable = [
         'nome',
-        'descricao',
-        'preco',
-        'capacidade_maxima'
+        'sobrenome',
+        'email',
+        'telefone',
+        'endereco',
+        'pais',
+        'data_nascimento',
+        'NIF'
     ];
-
 }

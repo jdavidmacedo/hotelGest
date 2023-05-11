@@ -17,8 +17,13 @@ class Hotel extends Model
         'endereco',
         'cidade',
         'pais',
+        'codigo_postal',
         'telefone',
+        'estrelas',
+        'descricao'
     ];
+
+
 }
 
 

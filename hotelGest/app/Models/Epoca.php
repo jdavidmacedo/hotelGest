@@ -1,23 +1,17 @@
 <?php
-
-namespace App\Models;
-// App\Models\TipoQuarto.php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TipoDeQuarto extends Model
+class Epoca extends Model
 {
     use HasFactory;
-    protected $table = 'tipo_quartos';
+    protected $table = 'epoca';
 
     protected $fillable = [
         'nome',
-        'descricao',
-        'preco',
-        'capacidade_maxima'
+        'data_inicio',
+        'data_fim'
     ];
-
 }

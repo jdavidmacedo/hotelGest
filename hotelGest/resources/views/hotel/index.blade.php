@@ -12,30 +12,40 @@
             </div>
         @endif
 
-        <a href="{{ route('hotel.store') }}" class="btn btn-primary">Adicionar Hotel</a>
+        <a href="{{ route('hotel.create') }}" class="btn btn-primary">Adicionar Hotel</a>
         <br><br>
 
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Codigo Postal</th>
+                <th>País</th>
+                <th>Cidade</th>
+                <th>Estrelas</th>
                 <th>Ações</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($hoteis as $hotel)
+            @foreach($hotel as $hotel)
                 <tr>
-                    <td>{{ $hotel->id }}</td>
                     <td>{{ $hotel->nome }}</td>
                     <td>{{ $hotel->email }}</td>
+                    <td>{{ $hotel->telefone }}</td>
+                    <td>{{ $hotel->endereco }}</td>
+                    <td>{{ $hotel->codigo_postal }}</td>
+                    <td>{{ $hotel->pais }}</td>
+                    <td>{{ $hotel->cidade }}</td>
+                    <td>{{ $hotel->estrelas }}</td>
                     <td>
                         <a href="{{ route('hotel.edit', $hotel->id) }}" class="btn btn-sm btn-info">Editar</a>
-                        <form action="{{ route('hotel.destroy', $hotel->id) }}" method="post" style="display:inline">
+                        <form action="{{ route('hotel.destroy', $hotel->id) }}" method="post" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir este hotel?')">Excluir</button>
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este hotel?')">Excluir</button>
                         </form>
                     </td>
                 </tr>

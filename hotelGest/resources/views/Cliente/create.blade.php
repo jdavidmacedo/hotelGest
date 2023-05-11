@@ -1,19 +1,23 @@
 @extends('adminlte::page')
 
-@section('title', 'Adicionar Hotel')
+@section('title', 'Adicionar Cliente')
 
 @section('content_header')
-    <h1>Adicionar Hotel</h1>
+    <h1>Adicionar Cliente</h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('hotel.store') }}" method="post">
+            <form action="{{ route('cliente.store') }}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" id="nome" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="sobrenome">Sobrenome:</label>
+                    <input type="text" name="sobrenome" id="sobrenome" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
@@ -28,30 +32,16 @@
                     <input type="text" name="endereco" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="codigo_postal">Código Postal:</label>
-                    <input type="text" name="codigo_postal" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="pais">Pais:</label>
+                    <label for="pais">País:</label>
                     <input type="text" name="pais" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" name="cidade" class="form-control" required>
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" name="data_nascimento" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="estrelas">Estrelas:</label>
-                    <select name="estrelas" class="form-control" required>
-                        <option value="1">1 Estrela</option>
-                        <option value="2">2 Estrelas</option>
-                        <option value="3">3 Estrelas</option>
-                        <option value="4">4 Estrelas</option>
-                        <option value="5">5 Estrelas</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="descricao">Descrição:</label>
-                    <textarea name="descricao" class="form-control" required></textarea>
+                    <label for="NIF">NIF:</label>
+                    <input type="text" name="NIF" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Salvar</button>

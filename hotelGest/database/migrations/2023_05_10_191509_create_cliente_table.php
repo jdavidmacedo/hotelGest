@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hotel', function (Blueprint $table) {
+        Schema::create('cliente', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('endereco');
-            $table->string('cidade');
-            $table->string('pais');
+            $table->string('sobrenome');
+            $table->string('email', 191)->unique();
             $table->string('telefone');
-            $table->string('email');
+            $table->string('endereco');
+            $table->string('pais');
+            $table->date('data_nascimento')->nullable();
+            $table->string('NIF')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hotel');
+        Schema::dropIfExists('cliente');
     }
 };

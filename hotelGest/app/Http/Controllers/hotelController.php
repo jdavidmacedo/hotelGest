@@ -17,8 +17,8 @@ class HotelController extends Controller
 
     public function index()
     {
-        $hoteis = hotel::all();
-        return view('hotel.index', compact('hoteis'));
+        $hotel = Hotel::all();
+        return view('hotel.index', compact('hotel'));
     }
 
     public function edit(hotel $hotel)
@@ -28,20 +28,7 @@ class HotelController extends Controller
 
     public function update(Request $request, Hotel $hotel)
     {
-        // Update the hotel using the DB facade, without validation
-        $affectedRows = DB::table('hotel')
-            ->where('id', $hotel->id)
-            ->update([
-                'nome' => $request->input('nome'),
-                'email' => $request->input('email'),
-                'endereco' => $request->input('endereco'),
-                'cidade' => $request->input('cidade'),
-                'pais' => $request->input('pais'),
-                'telefone' => $request->input('telefone'),
-            ]);
-
-        // Debug the result of the update query
-        //dd($affectedRows);
+        $hotel->update($request->all());
 
         return redirect()->route('hotel.index')->with('success', 'Hotel atualizado com sucesso!');
     }
@@ -55,35 +42,7 @@ class HotelController extends Controller
 
     public function store(Request $request)
     {
-
-
-        $nome=request('nome');
-        $email=request('email');
-        $endereco=request('endereco');
-        $cidade=request('cidade');
-        $pais=request('pais');
-        $telefone=request('telefone');
-
-        DB::table('hotel')-> insert([
-            'nome'=> $nome,
-            'email'=>$email,
-            'endereco'=>$endereco,
-            'pais'=>$pais,
-            'cidade'=>$cidade,
-            'telefone'=>$telefone,
-
-        ]);
-
-        $validatedData = $request->validate([
-            'nome' => 'required|string|max:255',
-            'endereco' => 'required|string|max:255',
-            'cidade' => 'required|string|max:255',
-            'pais' => 'required|string|max:255',
-            'telefone' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:hotel,email'
-        ]);
-
-        hotel::create($validatedData);
+        $hotel = hotel::create($request->all());
 
         return redirect()->route('hotel.create')->with('success', 'Hotel criado com sucesso!');
     }

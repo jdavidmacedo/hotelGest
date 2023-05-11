@@ -11,26 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipo_de_quartos', function (Blueprint $table) {
+        Schema::create('hotel', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_hotel');
             $table->string('nome');
-            $table->text('descricao')->nullable();
+            $table->string('endereco');
+            $table->string('cidade');
+            $table->string('codigo_postal');
+            $table->string('telefone');
+            $table->string('pais');
+            $table->integer('estrelas');
+            $table->string('email', 191)->unique();
+		    $table->text('descricao')->nullable();
             $table->timestamps();
-            //$table->foreignId('hotel_id')->constrained('hotel');
-
-            $table->foreign('id_hotel')
-                ->references('id')
-                ->on('hotel')
-                ->onDelete('cascade');
         });
-    }
 
+    }
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipo_de_quartos');
+        Schema::dropIfExists('hotel');
     }
 };

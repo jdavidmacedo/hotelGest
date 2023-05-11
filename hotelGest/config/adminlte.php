@@ -343,7 +343,12 @@ return [
             'text'    => 'Tipo de Quarto',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
-                                [
+                [
+                    'text' => 'Listar Tipo',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/TipoQuarto',
+                ],
+                [
                     'text' => 'Adicionar Tipo',
                     'icon' => 'fas fa-fw fa-plus',
                     'url'  => '/TipoQuarto/create',
@@ -351,15 +356,110 @@ return [
             ],
         ],
         [
+            'text'    => 'Tipo de Quarto Epoca',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/',
+                ],
+                [
+                    'text' => 'Adicionar',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/',
+                ],
+            ],
+        ],
+        [
             'text'    => 'Quartos',
             'icon'    => 'fas fa-fw fa-bed',
             'submenu' => [
-                                [
+
+                [
+                    'text' => 'Listar quartos',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/quarto',
+                ],
+                [
                     'text' => 'Adicionar Quarto',
                     'icon' => 'fas fa-fw fa-plus',
                     'url'  => '/quarto/create',
                 ],
             ],
+
+        ],
+        [
+            'text'    => 'Clientes',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+
+                [
+                    'text' => 'Listar Clientes',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/cliente',
+                ],
+                [
+                    'text' => 'Adicionar Clientes',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/cliente/create',
+                ],
+            ],
+
+        ],
+        [
+            'text'    => 'Epocas',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+
+                [
+                    'text' => 'Listar Epocas',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/epoca',
+                ],
+                [
+                    'text' => 'Adicionar Epocas',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/epoca/create',
+                ],
+            ],
+
+        ],
+        [
+            'text'    => 'Preço',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+
+                [
+                    'text' => 'Listar Preço',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/preco',
+                ],
+                [
+                    'text' => 'Adicionar Preço',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/preco/create',
+                ],
+            ],
+
+        ],
+        [
+            'text'    => 'Reservas',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+
+                [
+                    'text' => 'Listar Reservas',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/reserva',
+                ],
+                [
+                    'text' => 'Adicionar Reservas',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/reserva/create',
+                ],
+            ],
+
         ],
 
     ],
