@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Hotel</b>Gest',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'img/AdminLTELogo.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -316,7 +316,11 @@ return [
         ],
         [
             'text' => 'profile',
+<<<<<<< HEAD
             'url'  => '/profile', // atualize a URL para apontar para o perfil do usuário
+=======
+            'url'  => 'profile',
+>>>>>>> main
             'icon' => 'fas fa-fw fa-user',
         ],
 
