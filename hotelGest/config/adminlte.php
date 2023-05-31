@@ -311,17 +311,20 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        ['header' => 'account_settings'],
+        [
+            'header' => 'account_settings',
+        ],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => '/profile', // atualize a URL para apontar para o perfil do usuário
             'icon' => 'fas fa-fw fa-user',
         ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+
+
+
+
+
+
         ['header' => 'Management'],
         [
             'text' => 'Hotel',
@@ -355,22 +358,7 @@ return [
                 ],
             ],
         ],
-        [
-            'text'    => 'Tipo de Quarto Epoca',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'Listar',
-                    'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/',
-                ],
-                [
-                    'text' => 'Adicionar',
-                    'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/',
-                ],
-            ],
-        ],
+
         [
             'text'    => 'Quartos',
             'icon'    => 'fas fa-fw fa-bed',
@@ -385,24 +373,6 @@ return [
                     'text' => 'Adicionar Quarto',
                     'icon' => 'fas fa-fw fa-plus',
                     'url'  => '/quarto/create',
-                ],
-            ],
-
-        ],
-        [
-            'text'    => 'Clientes',
-            'icon'    => 'fas fa-fw fa-users',
-            'submenu' => [
-
-                [
-                    'text' => 'Listar Clientes',
-                    'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/cliente',
-                ],
-                [
-                    'text' => 'Adicionar Clientes',
-                    'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/cliente/create',
                 ],
             ],
 
@@ -426,23 +396,41 @@ return [
 
         ],
         [
-            'text'    => 'Preço',
+            'text'    => 'Tipo de Quarto Epoca',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/Tipo_epoca',
+                ],
+                [
+                    'text' => 'Adicionar',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/Tipo_epoca/create',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Clientes',
             'icon'    => 'fas fa-fw fa-users',
             'submenu' => [
 
                 [
-                    'text' => 'Listar Preço',
+                    'text' => 'Listar Clientes',
                     'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/preco',
+                    'url'  => '/cliente',
                 ],
                 [
-                    'text' => 'Adicionar Preço',
+                    'text' => 'Adicionar Clientes',
                     'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/preco/create',
+                    'url'  => '/cliente/create',
                 ],
             ],
 
         ],
+
+
         [
             'text'    => 'Reservas',
             'icon'    => 'fas fa-fw fa-users',
@@ -457,6 +445,24 @@ return [
                     'text' => 'Adicionar Reservas',
                     'icon' => 'fas fa-fw fa-plus',
                     'url'  => '/reserva/create',
+                ],
+            ],
+
+        ],
+        [
+            'text'    => 'Fatura',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+
+                [
+                    'text' => 'Listar Fatura',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/fatura',
+                ],
+                [
+                    'text' => 'Adicionar Fatura',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/fatura/create',
                 ],
             ],
 

@@ -41,11 +41,13 @@
                 </div>
                 <div class="form-group">
                     <label for="data_checkin">Data de Check-in:</label>
-                    <input type="date" name="data_checkin" id="data_checkin" class="form-control" value="{{ $reserva->data_checkin }}" required>
+                    <input type="date" name="data_checkin" id="data_checkin" class="form-control" value="{{ $reserva->data_checkin }}" required
+                           min="<?php echo date('Y-m-d'); ?>" max="9999-12-31">>
                 </div>
                 <div class="form-group">
                     <label for="data_checkout">Data de Check-out:</label>
-                    <input type="date" name="data_checkout" id="data_checkout" class="form-control" value="{{ $reserva->data_checkout }}" required>
+                    <input type="date" name="data_checkout" id="data_checkout" class="form-control" value="{{ $reserva->data_checkout }}" required
+                           min="<?php echo date('Y-m-d'); ?>" max="9999-12-31">
                 </div>
                 <div class="form-group">
                     <label for="status">Status:</label>

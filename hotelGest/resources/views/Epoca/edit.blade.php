@@ -18,11 +18,13 @@
                 </div>
                 <div class="form-group">
                     <label for="data_inicio">Data de Início:</label>
-                    <input type="date" name="data_inicio" id="data_inicio" class="form-control" value="{{ $epoca->data_inicio }}" required>
+                    <input type="date" name="data_inicio" id="data_inicio" class="form-control" value="{{ $epoca->data_inicio }}" required
+                           min="<?php echo date('Y-m-d'); ?>" max="9999-12-31">
                 </div>
                 <div class="form-group">
                     <label for="data_fim">Data de Fim:</label>
-                    <input type="date" name="data_fim" id="data_fim" class="form-control" value="{{ $epoca->data_fim }}" required>
+                    <input type="date" name="data_fim" id="data_fim" class="form-control" value="{{ $epoca->data_fim }}" required
+                           min="<?php echo date('Y-m-d'); ?>" max="9999-12-31">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Atualizar</button>
