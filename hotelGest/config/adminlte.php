@@ -316,11 +316,9 @@ return [
         ],
         [
             'text' => 'profile',
-<<<<<<< HEAD
-            'url'  => '/profile', // atualize a URL para apontar para o perfil do usuário
-=======
+
             'url'  => 'profile',
->>>>>>> main
+
             'icon' => 'fas fa-fw fa-user',
         ],
 
