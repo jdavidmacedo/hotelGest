@@ -467,6 +467,24 @@ return [
             ],
 
         ],
+        [
+            'text'    => 'Fatura Reserva',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+
+                [
+                    'text' => 'Listar ',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/fatura',
+                ],
+                [
+                    'text' => 'Adicionar ',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/fatura/create',
+                ],
+            ],
+
+        ],
 
     ],
 
