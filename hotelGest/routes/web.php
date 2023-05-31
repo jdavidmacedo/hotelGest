@@ -10,6 +10,12 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EpocaController;
 use App\Http\Controllers\PrecoController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\Tipo_quartos_EpocaController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FaturaController;
+
+
+
 
 
 
@@ -85,6 +91,28 @@ Route::get('/reserva', [ReservaController::class, 'index'])->name('reserva.index
 Route::get('/reserva/edit/{reserva}',[ReservaController::class, 'edit'])->name('reserva.edit');
 Route::put('/reserva/{reserva}', [ReservaController::class, 'update'])->name('reserva.update');
 Route::delete('/reserva/{reserva}', [ReservaController::class, 'destroy'])->name('reserva.destroy');
+
+//Tipo_epocas
+
+Route::get('/Tipo_epoca/create', [Tipo_quartos_EpocaController::class, 'create'])->name('Tipo_quarto_epoca.create');
+Route::post('/Tipo_epoca', [Tipo_quartos_EpocaController::class, 'store'])->name('Tipo_quarto_epoca.store');
+Route::get('/tipo_epocas', [Tipo_quartos_EpocaController::class, 'index'])->name('Tipo_quarto_epoca.index');
+Route::get('/tipo_epocas/{Tipo_epocas}/edit', [Tipo_quartos_EpocaController::class, 'edit'])->name('Tipo_quarto_epoca.edit');
+Route::put('/tipo_epocas/{Tipo_epocas}', [Tipo_quartos_EpocaController::class, 'update'])->name('Tipo_quarto_epoca.update');
+Route::delete('/tipo_epocas/{Tipo_epocas}', [Tipo_quartos_EpocaController::class, 'destroy'])->name('Tipo_quarto_epoca.destroy');
+
+//Fatura
+Route::get('/fatura/create', [FaturaController::class, 'create'])->name('Fatura.create');
+Route::post('/fatura', [FaturaController::class, 'store'])->name('Fatura.store');
+
+//user
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+
+
 
 
 Auth::routes();

@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Adicionar Reserva')
+@section('title', 'Adicionar')
 
 @section('content_header')
-    <h1>Adicionar Tipo_epocas</h1>
+    <h1>Adicionar </h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('Tipoepoca.store') }}" method="post">
-                @csrf
+            <form action="{{ route('Tipo_quarto_epoca.store') }}" method="post">
+             @csrf
                 <div class="form-group">
                     <label for="id_quarto">Quarto:</label>
                     <select name="id_quarto" id="id_quarto" class="form-control" required>
@@ -32,12 +32,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="data_checkin">Data de Check-in:</label>
-                    <input type="date" name="data_checkin" id="data_checkin" class="form-control" required>
+                    <label for="id_tipo_quartos">Epocas:</label>
+                    <select name="id_tipo_quartos" id="id_tipo_quartos" class="form-control" required>
+                        <option value="" disabled selected>Selecione</option>
+                        @foreach($epocas as $Epoca)
+                            <option value="{{ $Epoca->id }}">{{ $Epoca->nome }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="data_checkout">Data de Check-out:</label>
-                    <input type="date" name="data_checkout" id="data_checkout" class="form-control" required>
+                    <label for="preco">Preço Base por Noite:</label>
+                    <input type="number" name="preco" id="preco" step="0.01" min="0" max="9999999999.99" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Salvar</button>
