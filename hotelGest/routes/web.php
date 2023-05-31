@@ -107,8 +107,8 @@ Route::post('/fatura', [FaturaController::class, 'store'])->name('Fatura.store')
 
 //user
 Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
-    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profiles', [ProfileController::class, 'show'])->name('profile.show');
+    Route::post('/profiles', [ProfileController::class, 'update'])->name('profile.update');
 });
 
 

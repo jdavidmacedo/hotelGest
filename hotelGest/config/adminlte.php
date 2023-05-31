@@ -315,9 +315,9 @@ return [
             'header' => 'account_settings',
         ],
         [
-            'text' => 'profile',
+            'text' => 'profiles',
 
-            'url'  => 'profile',
+            'url'  => '/profiles',
 
             'icon' => 'fas fa-fw fa-user',
         ],
