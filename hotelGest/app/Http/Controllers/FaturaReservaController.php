@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Fatura;
+use App\Models\Fatura_Reserva;
+use App\Models\Reserva;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-
-class FaturaController extends Controller
+class FaturaReservaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,10 +23,10 @@ class FaturaController extends Controller
      */
     public function create()
     {
-        $numero = str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
-        // Gera um número aleatório de 8 caracteres
+        $reservas  = Reserva::all();
+        $faturas = Fatura::all();
+        return view('faturareserva.create', compact('reservas', 'faturas'));
 
-        return view('Fatura.create', compact('numero'));
     }
 
     /**
@@ -35,18 +35,12 @@ class FaturaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'numero' => 'required|string',
-            'data' => 'required|date',
-            'valor_total' => 'required|numeric',
-            'status' => 'required|string',
-            'tipo_pagamento' => 'required|string',
+            'id_reserva' => 'required|integer|exists:reserva,id',
+            'id_fatura' => 'required|integer|exists:fatura,id',
         ]);
-        $validatedData['numero'] = $numero = str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
-        // Gera um número aleatório de 8 caracteres
 
-        Fatura::create($validatedData);
-
-        return redirect()->route('Fatura.create')->with('success', 'Fatura criada com sucesso!');
+        Fatura_Reserva::create($validatedData);
+        return redirect()->route('faturareserva.create')->with('success', 'Reserva criada com sucesso!');
 
     }
 

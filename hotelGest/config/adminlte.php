@@ -322,11 +322,6 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
 
-
-
-
-
-
         ['header' => 'Management'],
         [
             'text' => 'Hotel',
@@ -477,12 +472,12 @@ return [
                 [
                     'text' => 'Listar ',
                     'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/fatura',
+                    'url'  => '/faturareserva',
                 ],
                 [
                     'text' => 'Adicionar ',
                     'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/fatura/create',
+                    'url'  => '/faturareserva/create',
                 ],
             ],
 

@@ -13,6 +13,8 @@ use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\Tipo_quartos_EpocaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FaturaController;
+use App\Http\Controllers\FaturaReservaController;
+
 
 
 
@@ -105,14 +107,16 @@ Route::delete('/tipo_epocas/{Tipo_epocas}', [Tipo_quartos_EpocaController::class
 Route::get('/fatura/create', [FaturaController::class, 'create'])->name('Fatura.create');
 Route::post('/fatura', [FaturaController::class, 'store'])->name('Fatura.store');
 
+//Fatura Reserva
+Route::get('/faturareserva/create', [FaturaReservaController::class, 'create'])->name('faturareserva.create');
+Route::post('/faturareserva', [FaturaReservaController::class, 'store'])->name('faturareserva.store');
+
+
 //user
 Route::middleware(['auth'])->group(function () {
     Route::get('/profiles', [ProfileController::class, 'show'])->name('profile.show');
     Route::post('/profiles', [ProfileController::class, 'update'])->name('profile.update');
 });
-
-
-
 
 
 Auth::routes();
