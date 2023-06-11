@@ -14,6 +14,7 @@ use App\Http\Controllers\Tipo_quartos_EpocaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FaturaController;
 use App\Http\Controllers\FaturaReservaController;
+use App\Http\Controllers\ReservaQuartoController;
 
 
 
@@ -112,11 +113,22 @@ Route::get('/faturareserva/create', [FaturaReservaController::class, 'create'])-
 Route::post('/faturareserva', [FaturaReservaController::class, 'store'])->name('faturareserva.store');
 
 
+//ReservaQuartos
+Route::get('/reserva-quarto/create', [ReservaQuartoController::class, 'create'])->name('ReservaQuartos.create');
+Route::post('/reserva-quarto', [ReservaQuartoController::class, 'store'])->name('ReservaQuartos.store');
+Route::get('/reserva-quarto', [ReservaQuartoController::class, 'index'])->name('ReservaQuartos.index');
+Route::get('/reserva-quarto/{reserva_quarto}/edit', [ReservaQuartoController::class, 'edit'])->name('ReservaQuartos.edit');
+Route::put('/reserva-quarto/{reserva_quarto}', [ReservaQuartoController::class, 'update'])->name('ReservaQuartos.update');
+Route::delete('/reserva-quarto/{reserva_quarto}', [ReservaQuartoController::class, 'destroy'])->name('ReservaQuartos.destroy');
+
+
+
 //user
 Route::middleware(['auth'])->group(function () {
     Route::get('/profiles', [ProfileController::class, 'show'])->name('profile.show');
     Route::post('/profiles', [ProfileController::class, 'update'])->name('profile.update');
 });
+
 
 
 Auth::routes();

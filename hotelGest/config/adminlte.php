@@ -482,6 +482,24 @@ return [
             ],
 
         ],
+        [
+            'text'    => 'Reserva Quartos',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+
+                [
+                    'text' => 'Listar ',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/reserva-quarto',
+                ],
+                [
+                    'text' => 'Adicionar ',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/reserva-quarto/create',
+                ],
+            ],
+
+        ],
 
     ],
 

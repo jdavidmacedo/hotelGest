@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-body">
             <a href="{{ route('Tipo_quarto_epoca.create') }}" class="btn btn-primary mb-3">Adicionar Tipo_epocas</a>
-            <table class="table table-bordered">
+            <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>
