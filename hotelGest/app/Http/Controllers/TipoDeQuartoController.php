@@ -31,7 +31,7 @@ class TipoDeQuartoController extends Controller
 
         TipoDeQuarto::create($validatedData);
 
-        return redirect()->route('TipoQuarto.create')->with('success', 'Tipo de quarto criado com sucesso!');
+        return redirect()->route('TipoQuarto.index')->with('success', 'Tipo de quarto criado com sucesso!');
     }
     public function edit(TipoDeQuarto $tipoQuarto)
     {

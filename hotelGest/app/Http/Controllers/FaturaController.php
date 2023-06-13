@@ -46,7 +46,7 @@ class FaturaController extends Controller
 
         Fatura::create($validatedData);
 
-        return redirect()->route('Fatura.create')->with('success', 'Fatura criada com sucesso!');
+        return redirect()->route('Fatura.index')->with('success', 'Fatura criada com sucesso!');
 
     }
 

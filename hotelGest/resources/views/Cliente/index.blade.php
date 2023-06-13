@@ -9,6 +9,12 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <a href="{{ route('cliente.create') }}" class="btn btn-primary mb-3">Adicionar Cliente</a>
             <table class="table table-bordered table-striped">
                 <thead>

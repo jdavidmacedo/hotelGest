@@ -399,12 +399,12 @@ return [
                 [
                     'text' => 'Listar',
                     'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/Tipo_epoca',
+                    'url'  => '/QuartoEpoca',
                 ],
                 [
                     'text' => 'Adicionar',
                     'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/Tipo_epoca/create',
+                    'url'  => '/QuartoEpoca/create',
                 ],
             ],
         ],
@@ -496,6 +496,24 @@ return [
                     'text' => 'Adicionar ',
                     'icon' => 'fas fa-fw fa-plus',
                     'url'  => '/reserva-quarto/create',
+                ],
+            ],
+
+        ],
+        [
+            'text'    => 'Hospedes',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+
+                [
+                    'text' => 'Listar ',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/reserva_hospede',
+                ],
+                [
+                    'text' => 'Adicionar ',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/reserva_hospede/create',
                 ],
             ],
 

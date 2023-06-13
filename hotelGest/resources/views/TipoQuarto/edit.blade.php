@@ -10,6 +10,12 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <form action="{{ route('TipoQuarto.update', $tipoQuarto->id) }}" method="post">
                 @csrf
                 @method('PUT')

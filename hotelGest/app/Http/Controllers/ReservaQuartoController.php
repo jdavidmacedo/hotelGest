@@ -35,7 +35,7 @@ class ReservaQuartoController extends Controller
             $reservaQuarto->save();
         }
 
-        return redirect()->route('ReservaQuartos.create')->with('success', 'Reserva criada com sucesso!');
+        return redirect()->route('ReservaQuartos.index')->with('success', 'Reserva criada com sucesso!');
     }
     public function index()
     {

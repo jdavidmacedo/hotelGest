@@ -9,6 +9,12 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <form action="{{ route('ReservaQuartos.update', $reservaQuarto->id) }}" method="post">
                 @csrf
                 @method('PUT')
