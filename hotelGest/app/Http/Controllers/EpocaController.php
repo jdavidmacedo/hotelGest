@@ -21,7 +21,7 @@ class EpocaController extends Controller
 
         Epoca::create($validatedData);
 
-        return redirect()->route('epoca.create')->with('success', 'Época criada com sucesso!');
+        return redirect()->route('epoca.index')->with('success', 'Época criada com sucesso!');
     }
 
     public function index()

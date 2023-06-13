@@ -11,6 +11,7 @@ class Fatura extends Model
     protected $table = 'fatura';
 
     protected $fillable = [
+        'numero',
         'data',
         'valor_total',
         'status',

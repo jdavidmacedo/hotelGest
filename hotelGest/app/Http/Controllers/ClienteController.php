@@ -28,7 +28,7 @@ class ClienteController extends Controller
 
         Cliente::create($validatedData);
 
-        return redirect()->route('cliente.create')->with('success', 'Cliente criado com sucesso!');
+        return redirect()->route('cliente.index')->with('success', 'Cliente criado com sucesso!');
     }
 
     public function index()
@@ -49,7 +49,7 @@ class ClienteController extends Controller
         $validatedData = $request->validate([
             'nome' => 'required|string|max:255',
             'sobrenome' => 'required|string|max:255',
-            'email' => 'required|email|unique:cliente,email|max:255',
+            'email' => 'required|email|unique:cliente,email,' . $cliente->id . ',id|max:255',
             'telefone' => 'required|string',
             'endereco' => 'required|string|max:255',
             'pais' => 'required|string|max:255',

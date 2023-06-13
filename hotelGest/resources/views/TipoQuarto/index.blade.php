@@ -9,6 +9,12 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <a href="{{ route('TipoQuarto.create') }}" class="btn btn-primary">Criar Tipo de Quarto</a>
 
             @if(session('success'))

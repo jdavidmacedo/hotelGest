@@ -40,7 +40,7 @@ class QuartoController extends Controller
 
         Quarto::create($validatedData);
 
-        return redirect()->route('quartos.create')->with('success', 'Quarto criado com sucesso!');
+        return redirect()->route('quartos.index')->with('success', 'Quarto criado com sucesso!');
     }
 
     public function edit(Quarto $quarto)

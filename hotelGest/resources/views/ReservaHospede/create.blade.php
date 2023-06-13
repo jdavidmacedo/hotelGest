@@ -1,22 +1,39 @@
 @extends('adminlte::page')
 
-@section('title', 'Adicionar Cliente')
+@section('title', 'Adicionar Hospede')
 
 @section('content_header')
-    <h1>Adicionar Cliente</h1>
+    <h1>Adicionar Hospede</h1>
 @stop
 
 @section('content')
-        <div class="card">
-            <div class="card-body">
-                @if(session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
-
-                <form action="{{ route('cliente.store') }}" method="post">
+    <div class="card">
+        <div class="card-body">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            <form action="{{ route('ReservaHospede.store') }}" method="post">
                 @csrf
+                <div class="form-group">
+                    <label for="id_cliente">Cliente:</label>
+                    <select name="id_cliente" id="id_cliente" class="form-control" required>
+                        <option value="">Selecione um cliente</option>
+                        @foreach($clientes as $cliente)
+                            <option value="{{ $cliente->id }}">{{ $cliente->nome }} {{ $cliente->sobrenome }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="id_reserva">Reserva:</label>
+                    <select name="id_reserva" id="id_reserva" class="form-control" required>
+                        <option value="">Selecione uma reserva</option>
+                        @foreach($reservas as $reserva)
+                            <option value="{{ $reserva->id }}">{{ $reserva->id }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-group">
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" id="nome" class="form-control" required>

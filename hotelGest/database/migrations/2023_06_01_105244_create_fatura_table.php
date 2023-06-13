@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('fatura', function (Blueprint $table) {
             $table->id();
+            $table->string('numero');
             $table->date('data');
             $table->decimal('valor_total', 8, 2);
             $table->string('status');

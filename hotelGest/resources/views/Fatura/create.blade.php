@@ -11,6 +11,8 @@
         <div class="card-body">
             <form action="{{ route('Fatura.store') }}" method="post">
                 @csrf
+                <input type="hidden" name="numero" value="{{ $numero }}">
+
                 <div class="form-group">
                     <label for="data">Data:</label>
                     <input type="date" name="data" id="data" class="form-control" required

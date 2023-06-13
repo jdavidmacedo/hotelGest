@@ -15,7 +15,7 @@
         <a href="{{ route('hotel.create') }}" class="btn btn-primary">Adicionar Hotel</a>
         <br><br>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered table-striped">
             <thead>
             <tr>
                 <th>Nome</th>

@@ -9,6 +9,12 @@
 @section('content')
     <div class="card">
         <div class="card-body">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <a href="{{ route('epoca.create') }}" class="btn btn-primary mb-3">Adicionar Época</a>
             <table class="table table-bordered table-striped">
                 <thead>

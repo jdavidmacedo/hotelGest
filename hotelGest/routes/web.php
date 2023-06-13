@@ -10,12 +10,12 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EpocaController;
 use App\Http\Controllers\PrecoController;
 use App\Http\Controllers\ReservaController;
-use App\Http\Controllers\Tipo_quartos_EpocaController;
+use App\Http\Controllers\QuartoEpocaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FaturaController;
-
-
-
+use App\Http\Controllers\FaturaReservaController;
+use App\Http\Controllers\ReservaQuartoController;
+use App\Http\Controllers\ReservaHospedeController;
 
 
 
@@ -94,24 +94,43 @@ Route::delete('/reserva/{reserva}', [ReservaController::class, 'destroy'])->name
 
 //Tipo_epocas
 
-Route::get('/Tipo_epoca/create', [Tipo_quartos_EpocaController::class, 'create'])->name('Tipo_quarto_epoca.create');
-Route::post('/Tipo_epoca', [Tipo_quartos_EpocaController::class, 'store'])->name('Tipo_quarto_epoca.store');
-Route::get('/tipo_epocas', [Tipo_quartos_EpocaController::class, 'index'])->name('Tipo_quarto_epoca.index');
-Route::get('/tipo_epocas/{Tipo_epocas}/edit', [Tipo_quartos_EpocaController::class, 'edit'])->name('Tipo_quarto_epoca.edit');
-Route::put('/tipo_epocas/{Tipo_epocas}', [Tipo_quartos_EpocaController::class, 'update'])->name('Tipo_quarto_epoca.update');
-Route::delete('/tipo_epocas/{Tipo_epocas}', [Tipo_quartos_EpocaController::class, 'destroy'])->name('Tipo_quarto_epoca.destroy');
+Route::get('/QuartoEpoca/create', [QuartoEpocaController::class, 'create'])->name('QuartoEpoca.create');
+Route::post('/QuartoEpoca', [QuartoEpocaController::class, 'store'])->name('QuartoEpoca.store');
+Route::get('/QuartoEpoca', [QuartoEpocaController::class, 'index'])->name('QuartoEpoca.index');
+Route::get('/QuartoEpoca/{QuartoEpoca}/edit', [QuartoEpocaController::class, 'edit'])->name('QuartoEpoca.edit');
+Route::put('/QuartoEpoca/{QuartoEpoca}', [QuartoEpocaController::class, 'update'])->name('QuartoEpoca.update');
+Route::delete('/QuartoEpoca/{QuartoEpoca}', [QuartoEpocaController::class, 'destroy'])->name('QuartoEpoca.destroy');
 
 //Fatura
 Route::get('/fatura/create', [FaturaController::class, 'create'])->name('Fatura.create');
 Route::post('/fatura', [FaturaController::class, 'store'])->name('Fatura.store');
+
+//Fatura Reserva
+Route::get('/faturareserva/create', [FaturaReservaController::class, 'create'])->name('faturareserva.create');
+Route::post('/faturareserva', [FaturaReservaController::class, 'store'])->name('faturareserva.store');
+
+
+//ReservaQuartos
+Route::get('/reserva-quarto/create', [ReservaQuartoController::class, 'create'])->name('ReservaQuartos.create');
+Route::post('/reserva-quarto', [ReservaQuartoController::class, 'store'])->name('ReservaQuartos.store');
+Route::get('/reserva-quarto', [ReservaQuartoController::class, 'index'])->name('ReservaQuartos.index');
+Route::get('/reserva-quarto/{reserva_quarto}/edit', [ReservaQuartoController::class, 'edit'])->name('ReservaQuartos.edit');
+Route::put('/reserva-quarto/{reserva_quarto}', [ReservaQuartoController::class, 'update'])->name('ReservaQuartos.update');
+Route::delete('/reserva-quarto/{reserva_quarto}', [ReservaQuartoController::class, 'destroy'])->name('ReservaQuartos.destroy');
+
+//REservaHospede
+Route::get('/reserva_hospede/create', [ReservaHospedeController::class, 'create'])->name('ReservaHospede.create');
+Route::post('/reserva_hospede', [ReservaHospedeController::class, 'store'])->name('ReservaHospede.store');
+Route::get('/reserva_hospede', [ReservaHospedeController::class, 'index'])->name('ReservaHospede.index');
+Route::get('/reserva_hospede/{reserva_hospede}/edit', [ReservaHospedeController::class, 'edit'])->name('ReservaHospede.edit');
+Route::put('/reserva_hospede/{reserva_hospede}', [ReservaHospedeController::class, 'update'])->name('ReservaHospede.update');
+Route::delete('/reserva_hospede/{reserva_hospede}', [ReservaHospedeController::class, 'destroy'])->name('ReservaHospede.destroy');
 
 //user
 Route::middleware(['auth'])->group(function () {
     Route::get('/profiles', [ProfileController::class, 'show'])->name('profile.show');
     Route::post('/profiles', [ProfileController::class, 'update'])->name('profile.update');
 });
-
-
 
 
 

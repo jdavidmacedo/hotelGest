@@ -44,6 +44,6 @@ class HotelController extends Controller
     {
         $hotel = hotel::create($request->all());
 
-        return redirect()->route('hotel.create')->with('success', 'Hotel criado com sucesso!');
+        return redirect()->route('hotel.index')->with('success', 'Hotel criado com sucesso!');
     }
 }

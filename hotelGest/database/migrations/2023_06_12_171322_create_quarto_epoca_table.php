@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipo_quartos_epoca', function (Blueprint $table) {
+        Schema::create('quarto_epoca', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_quarto');
             $table->unsignedBigInteger('id_epoca');
             $table->unsignedBigInteger('id_tipo_quartos');
             $table->decimal('preco_base_por_noite', 10, 2);
             $table->timestamps();
-
             $table->foreign('id_quarto')->references('id')->on('quarto');
             $table->foreign('id_epoca')->references('id')->on('epoca');
             $table->foreign('id_tipo_quartos')->references('id')->on('tipo_quartos');
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipo_quartos_epoca');
+        Schema::dropIfExists('quarto_epoca');
     }
 };

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Fatura;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class FaturaController extends Controller
 {
@@ -22,7 +23,6 @@ class FaturaController extends Controller
      */
     public function create()
     {
-
         // $response = Http::withHeaders([
         //     'Content-Type' => 'application/x-www-form-urlencoded',
         //     'Cookie' => 'PHPSESSID=1db6128aa8451306a7343eeee8ad5844'
@@ -38,7 +38,10 @@ class FaturaController extends Controller
 
         return view('Fatura.create');
 
-        
+        $numero = str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
+        // Gera um número aleatório de 8 caracteres
+
+        return view('Fatura.create', compact('numero'));
     }
 
     /**
@@ -47,11 +50,14 @@ class FaturaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
+            'numero' => 'required|string',
             'data' => 'required|date',
             'valor_total' => 'required|numeric',
             'status' => 'required|string',
             'tipo_pagamento' => 'required|string',
         ]);
+        $validatedData['numero'] = $numero = str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
+        // Gera um número aleatório de 8 caracteres
 
         //Dados para enviar na API
         $apiData = [
@@ -61,6 +67,8 @@ class FaturaController extends Controller
 
         // Obter o token de acesso da sessão
         $accessToken = session('access_token');
+      
+        return redirect()->route('Fatura.index')->with('success', 'Fatura criada com sucesso!');
 
         // Fazer a chamada para a API com o método POST
         $response = Http::withHeaders([
