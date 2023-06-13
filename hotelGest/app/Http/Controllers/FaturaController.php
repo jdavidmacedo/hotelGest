@@ -23,16 +23,18 @@ class FaturaController extends Controller
     public function create()
     {
 
-        $response = Http::withHeaders([
-            'Content-Type' => 'application/x-www-form-urlencoded',
-            'Cookie' => 'PHPSESSID=1db6128aa8451306a7343eeee8ad5844'
-          ])->post('https://devipvc.gesfaturacao.pt/gesfaturacao/server/webservices/api/mobile/v1.0.2/authentication', [
+        // $response = Http::withHeaders([
+        //     'Content-Type' => 'application/x-www-form-urlencoded',
+        //     'Cookie' => 'PHPSESSID=1db6128aa8451306a7343eeee8ad5844'
+        //   ])->post('https://devipvc.gesfaturacao.pt/gesfaturacao/server/webservices/api/mobile/v1.0.2/authentication', [
             
-            'username' => 'ipvcweb2',
-            'password' => 'ipvcweb2'
-            ]);
+        //     'username' => 'ipvcweb2',
+        //     'password' => 'ipvcweb2'
+        //     ]);
 
-        dd($response->body());
+        // dd($response->body());
+
+        
 
         return view('Fatura.create');
 
@@ -51,10 +53,41 @@ class FaturaController extends Controller
             'tipo_pagamento' => 'required|string',
         ]);
 
+        //Dados para enviar na API
+        $apiData = [
+            'date' => $validatedData['data'],
+            'paymentMethod' => $validatedData['tipo_pagamento'],
+        ];
+
+        // Obter o token de acesso da sessão
+        $accessToken = session('access_token');
+
+        // Fazer a chamada para a API com o método POST
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer ' . $accessToken,
+        ])->post('https://devipvc.gesfaturacao.pt/gesfaturacao/server/webservices/api/mobile/v1.0.2/receipts', $apiData);
+
+        if ($response->successful()) {
+            // O pedido POST foi bem-sucedido
+            $responseData = $response->json();
+            
+            echo $responseData;
+
+            // Faça algo com a resposta recebida
+
+            return redirect()->route('Fatura.create')->with('success', 'Fatura criada com sucesso!');
+            
+        } else {
+            // O pedido POST falhou
+            $errorCode = $response->status();
+            $errorMessage = $response->body();
+
+            // Trate o erro de acordo com suas necessidades
+            return redirect()->back()->with('error', 'Erro ao criar a fatura: ' . $errorMessage);
+        }
+
         Fatura::create($validatedData);
-
-        return redirect()->route('Fatura.create')->with('success', 'Fatura criada com sucesso!');
-
     }
 
     /**
