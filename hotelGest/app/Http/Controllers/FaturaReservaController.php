@@ -40,7 +40,7 @@ class FaturaReservaController extends Controller
         ]);
 
         Fatura_Reserva::create($validatedData);
-        return redirect()->route('faturareserva.index')->with('success', 'Reserva criada com sucesso!');
+        return redirect()->route('faturareserva.create')->with('success', 'Reserva criada com sucesso!');
 
     }
 
