@@ -68,7 +68,7 @@ return [
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'HotelGest',
+    'logo_img_alt' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -87,7 +87,7 @@ return [
         'enabled' => true,
         'img' => [
             'path' => 'config/img/logoGest.png',
-            'alt' => 'HOTELGest',
+            'alt' => '',
             'class' => '',
             'width' => 50,
             'height' => 50,
@@ -110,7 +110,7 @@ return [
         'enabled' => true,
         'img' => [
             'path' => 'config/img/AdminLTELogo.png',
-            'alt' => 'HOTELGest',
+            'alt' => '',
             'effect' => 'animation__shake',
             'width' => 60,
             'height' => 60,
@@ -312,7 +312,7 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'header' => 'account_settings',
+            'header' => 'Definições de Perfil',
         ],
         [
             'text' => 'Perfil',
@@ -322,7 +322,7 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
 
-        ['header' => 'Management'],
+        ['header' => 'Administração'],
         [
             'text' => 'Hotel',
             'icon' => 'fas fa-fw fa-hotel',
@@ -340,12 +340,12 @@ return [
             ],
         ],
         [
-            'text'    => 'Tipo de Quarto',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Tipos de Quarto',
+            'icon'    => 'fas fa-fw fa-bed',
             'submenu' => [
                 [
                     'text' => 'Listar Tipo',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/TipoQuarto',
                 ],
                 [
@@ -358,12 +358,12 @@ return [
 
         [
             'text'    => 'Quartos',
-            'icon'    => 'fas fa-fw fa-bed',
+            'icon'    => 'fas fa-fw fa-cube',
             'submenu' => [
 
                 [
                     'text' => 'Listar quartos',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/quarto',
                 ],
                 [
@@ -376,12 +376,12 @@ return [
         ],
         [
             'text'    => 'Epocas',
-            'icon'    => 'fas fa-fw fa-users',
+            'icon'    => 'fas fa-fw fa-tree',
             'submenu' => [
 
                 [
                     'text' => 'Listar Epocas',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/epoca',
                 ],
                 [
@@ -394,11 +394,11 @@ return [
         ],
         [
             'text'    => 'Tipo de Quarto Epoca',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-fw fa-tree',
             'submenu' => [
                 [
                     'text' => 'Listar',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/QuartoEpoca',
                 ],
                 [
@@ -415,7 +415,7 @@ return [
 
                 [
                     'text' => 'Listar Clientes',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/cliente',
                 ],
                 [
@@ -430,12 +430,12 @@ return [
 
         [
             'text'    => 'Reservas',
-            'icon'    => 'fas fa-fw fa-users',
+            'icon'    => 'fas fa-fw fa-list-alt',
             'submenu' => [
 
                 [
                     'text' => 'Listar Reservas',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/reserva',
                 ],
                 [
@@ -448,12 +448,12 @@ return [
         ],
         [
             'text'    => 'Fatura',
-            'icon'    => 'fas fa-fw fa-users',
+            'icon'    => 'fas fa-fw fa-sticky-note',
             'submenu' => [
 
                 [
                     'text' => 'Listar Fatura',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/fatura',
                 ],
                 [
@@ -466,12 +466,12 @@ return [
         ],
         [
             'text'    => 'Fatura Reserva',
-            'icon'    => 'fas fa-fw fa-users',
+            'icon'    => 'fas fa-fw fa-sticky-note',
             'submenu' => [
 
                 [
                     'text' => 'Listar ',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/faturareserva',
                 ],
                 [
@@ -484,12 +484,12 @@ return [
         ],
         [
             'text'    => 'Reserva Quartos',
-            'icon'    => 'fas fa-fw fa-users',
+            'icon'    => 'fas fa-fw fa-list',
             'submenu' => [
 
                 [
                     'text' => 'Listar ',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/reserva-quarto',
                 ],
                 [
@@ -507,7 +507,7 @@ return [
 
                 [
                     'text' => 'Listar ',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/reserva_hospede',
                 ],
                 [
