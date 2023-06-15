@@ -62,8 +62,6 @@ class LoginController extends Controller
                 // Armazenar o token de acesso na sessão
                 session(['access_token' => $accessToken]);
 
-                dd($accessToken);
-
              }else {
                 // O pedido de autenticação falhou
                 $errorCode = $response->status();
