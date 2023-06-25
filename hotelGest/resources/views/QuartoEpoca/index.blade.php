@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Lista de Reservas')
+@section('title', 'Lista de Preços')
 
 @section('content_header')
-    <h1>Lista de Reservas</h1>
+    <h1>Lista de Preços</h1>
 @stop
 
 @section('content')
@@ -32,8 +32,8 @@
                         <td>{{ $quartoEpoca->quarto->numero_do_quarto }}</td>
                         <td>{{ $quartoEpoca->epoca->nome }}</td>
                         <td>
-                            @if($quartoEpoca->tipo_de_quarto)
-                                {{ $quartoEpoca->tipo_de_quarto->nome }}
+                            @if($quartoEpoca->tipoDeQuarto)
+                                {{ $quartoEpoca->tipoDeQuarto->nome }}
                             @else
                                 N/A
                             @endif

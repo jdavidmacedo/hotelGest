@@ -393,8 +393,8 @@ return [
 
         ],
         [
-            'text'    => 'Tipo de Quarto Epoca',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Preço',
+            'icon' => 'fas fa-fw fa-tag',
             'submenu' => [
                 [
                     'text' => 'Listar',

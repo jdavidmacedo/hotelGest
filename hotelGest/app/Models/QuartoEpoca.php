@@ -26,8 +26,8 @@ class QuartoEpoca extends Model
         return $this->belongsTo(Epoca::class, 'id_epoca');
     }
 
-    public function tipoQuartos()
+    public function tipoDeQuarto()
     {
-        return $this->belongsTo(TipoQuartos::class, 'id_tipo_quartos');
+        return $this->belongsTo(TipoDeQuarto::class, 'id_tipo_quartos');
     }
 }
