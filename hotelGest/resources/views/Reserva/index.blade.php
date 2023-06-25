@@ -28,6 +28,7 @@
                     <th>Data de Check-in</th>
                     <th>Data de Check-out</th>
                     <th>Status</th>
+                    <th>Preço Total</th>
                     <th>Ações</th>
                 </tr>
                 </thead>
@@ -37,10 +38,19 @@
                         <td>{{ $reserva->id }}</td>
                         <td>{{ $reserva->cliente->nome }} {{ $reserva->cliente->sobrenome }}</td>
                         <td>{{ $reserva->hotel->nome }}</td>
-                        <td>{{ $reserva->quarto->numero_do_quarto }}</td>
+                        <td>{{ $reserva->QuartoEpoca->quarto->numero_do_quarto }}</td>
                         <td>{{ $reserva->data_checkin }}</td>
                         <td>{{ $reserva->data_checkout }}</td>
                         <td>{{ $reserva->status }}</td>
+                        <td>
+                            @php
+                                $checkin = \Carbon\Carbon::parse($reserva->data_checkin);
+                                $checkout = \Carbon\Carbon::parse($reserva->data_checkout);
+                                $noites = $checkin->diffInDays($checkout);
+                                $precoTotal = $noites * $reserva->quartoEpoca->preco_por_noite;
+                            @endphp
+                            {{ $precoTotal }}
+                        </td>
                         <td>
                             <a href="{{ route('reserva.edit', $reserva->id) }}" class="btn btn-sm btn-info">Atualizar</a>
                             <form action="{{ route('reserva.destroy', $reserva->id) }}" method="post" style="display:inline">

@@ -12,7 +12,7 @@ class Reserva extends Model
     protected $fillable = [
         'id_cliente',
         'id_hotel',
-        'id_quarto',
+        'id_quarto_epoca',
         'data_checkin',
         'data_checkout',
         'status'
@@ -28,8 +28,8 @@ class Reserva extends Model
         return $this->belongsTo(Hotel::class, 'id_hotel');
     }
 
-    public function quarto()
+    public function QuartoEpoca()
     {
-        return $this->belongsTo(Quarto::class, 'id_quarto');
+        return $this->belongsTo(QuartoEpoca::class, 'id_quarto_epoca');
     }
 }

@@ -36,14 +36,17 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="id_quarto">Quarto:</label>
-                    <select name="id_quarto" id="id_quarto" class="form-control" required>
+                    <label for="id_quarto_epoca">Quarto:</label>
+                    <select name="id_quarto_epoca" id="id_quarto_epoca" class="form-control" required>
                         <option value="">Selecione um quarto</option>
-                        @foreach($quartos as $quarto)
-                            <option value="{{ $quarto->id }}">{{ $quarto->numero_do_quarto }}</option>
+                        @foreach($quartos_epoca as $quartoEpoca)
+                            <option value="{{ $quartoEpoca->id }}">
+                                {{ $quartoEpoca->quarto->numero_do_quarto }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="data_checkin">Data de Check-in:</label>
                     <input type="date" name="data_checkin" id="data_checkin" class="form-control" required
@@ -51,8 +54,9 @@
                 </div>
                 <div class="form-group">
                     <label for="data_checkin">Data de Check-out:</label>
-                    <input type="date" name="data_checkin" id="data_checkin" class="form-control" required
+                    <input type="date" name="data_checkout" id="data_checkout" class="form-control" required
                            min="<?php echo date('Y-m-d'); ?>" max="9999-12-31">
+
                 </div>
 
                 <div class="form-group">

@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_cliente');
             $table->unsignedBigInteger('id_hotel');
-            $table->unsignedBigInteger('id_quarto');
+            $table->unsignedBigInteger('id_quarto_epoca');
             $table->date('data_checkin');
             $table->date('data_checkout');
             $table->enum('status', ['reservado', 'cancelado', 'concluido'])->default('reservado');
             $table->timestamps();
+
 
             $table->foreign('id_cliente')
                 ->references('id')
@@ -31,9 +32,9 @@ return new class extends Migration
                 ->on('hotel')
                 ->onDelete('cascade');
 
-            $table->foreign('id_quarto')
+            $table->foreign('id_quarto_epoca')
                 ->references('id')
-                ->on('quartos')
+                ->on('quarto_epoca')
                 ->onDelete('cascade');
         });
     }
