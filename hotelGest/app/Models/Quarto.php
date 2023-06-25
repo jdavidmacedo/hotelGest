@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Quarto extends Model
 {
     use HasFactory;
+    protected $table = 'quartos';
 
     protected $fillable = ['id_hotel',
         'id_tipo_quartos',
@@ -26,5 +27,6 @@ class Quarto extends Model
     {
         return $this->belongsTo(TipoDeQuarto::class, 'id_tipo_quartos');
     }
+
 }
 

@@ -345,7 +345,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Listar Tipo',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/TipoQuarto',
                 ],
                 [
@@ -363,7 +363,7 @@ return [
 
                 [
                     'text' => 'Listar quartos',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/quarto',
                 ],
                 [
@@ -376,12 +376,12 @@ return [
         ],
         [
             'text'    => 'Epocas',
-            'icon'    => 'fas fa-fw fa-users',
+            'ícone' => 'fas fa-fw fa-calendar-alt',
             'submenu' => [
 
                 [
                     'text' => 'Listar Epocas',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/epoca',
                 ],
                 [
@@ -398,7 +398,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Listar',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/QuartoEpoca',
                 ],
                 [
@@ -415,7 +415,7 @@ return [
 
                 [
                     'text' => 'Listar Clientes',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/cliente',
                 ],
                 [
@@ -435,7 +435,7 @@ return [
 
                 [
                     'text' => 'Listar Reservas',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/reserva',
                 ],
                 [
@@ -453,7 +453,7 @@ return [
 
                 [
                     'text' => 'Listar Fatura',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/fatura',
                 ],
                 [
@@ -471,7 +471,7 @@ return [
 
                 [
                     'text' => 'Listar ',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/faturareserva',
                 ],
                 [
@@ -489,7 +489,7 @@ return [
 
                 [
                     'text' => 'Listar ',
-                    'icon' => 'fas fa-fw fa-plus',
+                    'icon' => 'fas fa-fw fa-list',
                     'url'  => '/reserva-quarto',
                 ],
                 [

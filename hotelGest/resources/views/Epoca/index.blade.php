@@ -31,8 +31,8 @@
                     <tr>
                         <td>{{ $epoca->id }}</td>
                         <td>{{ $epoca->nome }}</td>
-                        <td>{{ $epoca->data_inicio }}</td>
-                        <td>{{ $epoca->data_fim }}</td>
+                        <td>{{ \Carbon\Carbon::parse($epoca->data_inicio)->format('d/m/Y') }}</td>
+                        <td>{{ \Carbon\Carbon::parse($epoca->data_fim)->format('d/m/Y') }}</td>
                         <td>
                             <a href="{{ route('epoca.edit', $epoca) }}" class="btn btn-primary">Editar</a>
                             <form action="{{ route('epoca.destroy', $epoca) }}" method="POST" class="d-inline">

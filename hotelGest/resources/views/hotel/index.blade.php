@@ -12,6 +12,13 @@
             </div>
         @endif
 
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
+
         <a href="{{ route('hotel.create') }}" class="btn btn-primary">Adicionar Hotel</a>
         <br><br>
 

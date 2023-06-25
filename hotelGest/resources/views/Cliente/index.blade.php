@@ -39,7 +39,7 @@
                         <td>{{ $cliente->endereco }}</td>
                         <td>{{ $cliente->telefone }}</td>
                         <td>{{ $cliente->pais }}</td>
-                        <td>{{ $cliente->data_nascimento }}</td>
+                        <td>{{ \Carbon\Carbon::parse($cliente->data_nascimento)->format('d/m/Y') }}</td>
                         <td>{{ $cliente->NIF }}</td>
                         <td>
                             <a href="{{ route('cliente.edit', $cliente) }}" class="btn btn-primary">Editar</a>

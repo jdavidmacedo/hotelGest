@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 class QuartoController extends Controller
 {
 
-
     public function index()
     {
         $quartos = Quarto::all();

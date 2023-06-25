@@ -28,6 +28,7 @@ class HotelController extends Controller
 
     public function update(Request $request, Hotel $hotel)
     {
+
         $hotel->update($request->all());
 
         return redirect()->route('hotel.index')->with('success', 'Hotel atualizado com sucesso!');
@@ -35,6 +36,10 @@ class HotelController extends Controller
 
     public function destroy(hotel $hotel)
     {
+        if($hotel->quartos()->exists()){
+            return redirect()->route('hotel.index')->with('error', 'Hotel possui quartos associados e não pode ser removido!');
+        }
+
         $hotel->delete();
         return redirect()->route('hotel.index')->with('success', 'Hotel removido com sucesso!');
     }

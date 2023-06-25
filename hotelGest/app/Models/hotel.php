@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hotel extends Model
 {
+
+
     use HasFactory;
     protected $table = 'hotel';
 
@@ -22,6 +24,11 @@ class Hotel extends Model
         'estrelas',
         'descricao'
     ];
+
+    public function quartos()
+    {
+        return $this->hasMany(Quarto::class, 'id_hotel');
+    }
 
 
 }
