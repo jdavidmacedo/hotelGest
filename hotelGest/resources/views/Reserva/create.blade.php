@@ -14,6 +14,13 @@
                     {{ session('success') }}
                 </div>
             @endif
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        @foreach($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach
+                    </div>
+                @endif
 
             <form action="{{ route('reserva.store') }}" method="post">
                 @csrf
@@ -35,11 +42,12 @@
                         @endforeach
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="id_quarto_epoca">Quarto:</label>
                     <select name="id_quarto_epoca" id="id_quarto_epoca" class="form-control" required>
                         <option value="">Selecione um quarto</option>
-                        @foreach($quartos_epoca as $quartoEpoca)
+                        @foreach($quartosEpoca as $quartoEpoca)
                             <option value="{{ $quartoEpoca->id }}">
                                 {{ $quartoEpoca->quarto->numero_do_quarto }}
                             </option>

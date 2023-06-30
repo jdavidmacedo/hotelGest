@@ -37,11 +37,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="id_quarto">Quarto:</label>
-                    <select name="id_quarto" id="id_quarto" class="form-control" required>
+                    <label for="id_quarto_epoca">Quarto:</label>
+                    <select name="id_quarto_epoca" id="id_quarto_epoca" class="form-control" required>
                         <option value="">Selecione um quarto</option>
-                        @foreach($quartos as $quarto)
-                            <option value="{{ $quarto->id }}" {{ $quarto->id == $reserva->id_quarto ? 'selected' : '' }}>{{ $quarto->numero_do_quarto }}</option>
+                        @foreach($quartosEpoca as $quartoEpoca)
+                            <option value="{{ $quartoEpoca->id }}" {{ $quartoEpoca->id == $reserva->id_quarto_epoca ? 'selected' : '' }}>{{ $quartoEpoca->quarto->numero_do_quarto }}</option>
                         @endforeach
                     </select>
                 </div>

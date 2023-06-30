@@ -1,12 +1,9 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use App\Models\QuartoEpoca;
-use App\Models\Reserva;
-use App\Models\Cliente;
-use App\Models\Hotel;
-use App\Models\Quarto;
 use Illuminate\Http\Request;
+use App\Models\{Cliente, Hotel, QuartoEpoca, Reserva};
 
 class ReservaController extends Controller
 {
@@ -14,69 +11,89 @@ class ReservaController extends Controller
     {
         $clientes = Cliente::all();
         $hoteis = Hotel::all();
-        $quartos = Quarto::all();
-        $quartos_epoca = QuartoEpoca::with('quarto')->get();
-        return view('reserva.create', compact('clientes', 'hoteis', 'quartos', 'quartos_epoca'));
+        $quartosEpoca = QuartoEpoca::all();
+
+        return view('reserva.create', compact('clientes', 'hoteis', 'quartosEpoca'));
     }
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'id_cliente' => 'required|integer|exists:cliente,id',
-            'id_hotel' => 'required|integer|exists:hotel,id',
-            'id_quarto_epoca' => 'required|integer|exists:quarto_epoca,id',
-            'data_checkin' => 'required|date',
-            'data_checkout' => 'required|date|after_or_equal:data_checkin',
-            'status' => 'required|in:reservado,cancelado,concluido',
-        ]);
+        // Obtém todas as reservas para o quarto desejado.
+        $reservasExistentes = Reserva::where('id_quarto_epoca', $request->id_quarto_epoca)->get();
 
-        Reserva::create($validatedData);
+        $dataCheckin = \Carbon\Carbon::parse($request->data_checkin);
+        $dataCheckout = \Carbon\Carbon::parse($request->data_checkout);
 
-        return redirect()->route('reserva.index')->with('success', 'Reserva criada com sucesso!');
+        // Verifica se há alguma reserva existente que se sobreponha à nova reserva.
+        foreach ($reservasExistentes as $reservaExistente) {
+            $reservaCheckin = \Carbon\Carbon::parse($reservaExistente->data_checkin);
+            $reservaCheckout = \Carbon\Carbon::parse($reservaExistente->data_checkout);
+
+            if ($dataCheckin->between($reservaCheckin, $reservaCheckout) ||
+                $dataCheckout->between($reservaCheckin, $reservaCheckout) ||
+                ($dataCheckin->lte($reservaCheckin) && $dataCheckout->gte($reservaCheckout))) {
+
+                // Se houver sobreposição, redireciona de volta para o formulário com um erro.
+                return redirect()->back()->withErrors(['error' => 'Este quarto não está disponível nas datas selecionadas.']);
+            }
+        }
+
+        // Se não houver sobreposição, prossegue com a criação da reserva.
+        $reserva = new Reserva;
+
+        $reserva->id_cliente = $request->id_cliente;
+        $reserva->id_hotel = $request->id_hotel;
+        $reserva->id_quarto_epoca = $request->id_quarto_epoca;
+        $reserva->data_checkin = $request->data_checkin;
+        $reserva->data_checkout = $request->data_checkout;
+        $reserva->status = $request->status;
+
+        $reserva->save();
+
+        return redirect()->route('reserva.index');
     }
+
 
     public function index()
     {
         $reservas = Reserva::all();
 
-        $reservas = Reserva::with('QuartoEpoca.quarto')->get();
         return view('reserva.index', compact('reservas'));
     }
 
-    public function edit(Reserva $reserva )
+    public function edit($id)
     {
-        //$reserva = Reserva::findOrFail($id);
+        $reserva = Reserva::find($id);
         $clientes = Cliente::all();
         $hoteis = Hotel::all();
-        //$quartos = Quarto::all();
-        $quartos_epoca = QuartoEpoca::all();
-        return view('reserva.edit', compact('reserva', 'clientes', 'hoteis','quartos_epoca'));
+        $quartosEpoca = QuartoEpoca::all();
+
+        return view('reserva.edit', compact('reserva', 'clientes', 'hoteis', 'quartosEpoca'));
     }
 
-    public function update(Request $request, Reserva $reserva)
+    public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'id_cliente' => 'required|integer|exists:cliente,id',
-            'id_hotel' => 'required|integer|exists:hotel,id',
-            //'id_quarto' => 'required|integer|exists:quartos,id',
-            'id_quarto_epoca' => 'required|integer|exists:quarto_epoca,id',
-            'data_checkin' => 'required|date',
-            'data_checkout' => 'required|date|after_or_equal:data_checkin',
-            'status' => 'required|in:reservado,cancelado,concluido',
-        ]);
+        $reserva = Reserva::find($id);
 
-        //$reserva = Reserva::findOrFail($id);
-        $reserva->update($validatedData);
 
-        return redirect()->route('reserva.index')->with('success', 'Atualizado com sucesso!');
+        $reserva->id_cliente = $request->id_cliente;
+        $reserva->id_hotel = $request->id_hotel;
+        $reserva->id_quarto_epoca = $request->id_quarto_epoca;
+        $reserva->data_checkin = $request->data_checkin;
+        $reserva->data_checkout = $request->data_checkout;
+        $reserva->status = $request->status;
+
+
+        $reserva->save();
+
+        return redirect()->route('reserva.index');
     }
 
-
-    public function destroy(Reserva $reserva)
+    public function destroy($id)
     {
-        //$reserva = Reserva::findOrFail($id);
+        $reserva = Reserva::find($id);
         $reserva->delete();
-        return redirect()->route('reserva.index')->with('success', 'Reserva excluída com sucesso!');
-    }
 
+        return redirect()->route('reserva.index');
+    }
 }
