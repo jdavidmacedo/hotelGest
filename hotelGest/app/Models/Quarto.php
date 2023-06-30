@@ -23,6 +23,11 @@ class Quarto extends Model
         return $this->belongsTo(Hotel::class, 'id_hotel');
     }
 
+    public function quartoEpocas()
+    {
+        return $this->hasMany(QuartoEpoca::class, 'id_quarto');
+    }
+
     public function tipo_quartos()
     {
         return $this->belongsTo(TipoDeQuarto::class, 'id_tipo_quartos');

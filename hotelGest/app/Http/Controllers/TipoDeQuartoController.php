@@ -45,8 +45,16 @@ class TipoDeQuartoController extends Controller
 
     public function destroy(TipoDeQuarto $tipoQuarto)
     {
+        // Verificar se o tipo de quarto está associado a algum quarto
+        if ($tipoQuarto->quartos()->exists()) {
+            return redirect()->route('TipoQuarto.index')->with('error', 'Não é possível excluir este tipo de quarto, pois está associado a um quarto.');
+        }
+
         $tipoQuarto->delete();
         return redirect()->route('TipoQuarto.index')->with('success', 'Tipo de quarto excluído com sucesso.');
     }
+
+
+
 }
 

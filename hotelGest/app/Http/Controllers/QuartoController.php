@@ -59,10 +59,15 @@ class QuartoController extends Controller
 
     public function destroy(Quarto $quarto)
     {
-        //$quarto = Quarto::findOrFail($id);
+        // Verificar se o quarto está associado a algum quarto_epoca
+        if ($quarto->quartoEpocas()->exists()) {
+            return redirect()->route('quartos.index')->with('error', 'Não é possível excluir este quarto, pois está associado a um preço.');
+        }
+
         $quarto->delete();
         return redirect()->route('quartos.index')->with('success', 'Quarto removido com sucesso!');
     }
+
 
 
 

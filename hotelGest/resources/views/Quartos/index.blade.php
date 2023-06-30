@@ -12,6 +12,12 @@
             </div>
         @endif
 
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <a href="{{ route('quartos.create') }}" class="btn btn-primary">Adicionar Quarto</a>
         <br><br>
 

@@ -10,6 +10,7 @@
                 {{ session('success') }}
             </div>
         @endif
+
         <form action="{{ route('TipoQuarto.store') }}" method="post">
             @csrf
             <div class="form-group">

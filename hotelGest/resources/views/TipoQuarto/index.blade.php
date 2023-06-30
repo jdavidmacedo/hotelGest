@@ -15,13 +15,14 @@
                 </div>
             @endif
 
-            <a href="{{ route('TipoQuarto.create') }}" class="btn btn-primary">Criar Tipo de Quarto</a>
-
-            @if(session('success'))
-                <div class="alert alert-success mt-3">
-                    {{ session('success') }}
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
                 </div>
             @endif
+
+            <a href="{{ route('TipoQuarto.create') }}" class="btn btn-primary">Criar Tipo de Quarto</a>
+
 
             <table class="table table-bordered table-striped">
                 <thead>

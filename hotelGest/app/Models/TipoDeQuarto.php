@@ -20,4 +20,10 @@ class TipoDeQuarto extends Model
         'capacidade_maxima'
     ];
 
+
+    public function quartos()
+    {
+        return $this->hasMany(Quarto::class, 'id_tipo_quartos');
+    }
+
 }

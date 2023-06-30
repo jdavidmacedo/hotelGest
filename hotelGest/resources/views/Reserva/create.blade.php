@@ -83,3 +83,11 @@
         </div>
     </div>
 @stop
+@section('js')
+    <script>
+        document.getElementById('data_checkin').addEventListener('change', function() {
+            document.getElementById('data_checkout').min = this.value;
+        });
+    </script>
+
+@stop

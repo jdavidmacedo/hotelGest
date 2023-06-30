@@ -16,6 +16,7 @@
                 </div>
             @endif
 
+
             <form action="{{ route('TipoQuarto.update', $tipoQuarto->id) }}" method="post">
                 @csrf
                 @method('PUT')

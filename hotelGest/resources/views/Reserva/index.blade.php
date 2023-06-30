@@ -39,8 +39,8 @@
                                 <td>{{ $reserva->cliente->nome }} {{ $reserva->cliente->sobrenome }}</td>
                                 <td>{{ $reserva->hotel->nome }}</td>
                                 <td>{{ $reserva->quartoEpoca->quarto->numero_do_quarto }}</td>
-                                <td>{{ $reserva->data_checkin }}</td>
-                                <td>{{ $reserva->data_checkout }}</td>
+                                <td>{{ \Carbon\Carbon::parse($reserva->data_checkin)->format('d/m/Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($reserva->data_checkout)->format('d/m/Y') }}</td>
                                 <td>{{ $reserva->status }}</td>
                                 <td>
                                     @php
