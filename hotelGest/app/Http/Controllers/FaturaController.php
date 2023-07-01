@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Fatura;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Http;
 
 
 class FaturaController extends Controller
@@ -41,13 +42,24 @@ class FaturaController extends Controller
             'status' => 'required|string',
             'tipo_pagamento' => 'required|string',
         ]);
+    
         $validatedData['numero'] = $numero = str_pad(rand(0, 99999999), 8, '0', STR_PAD_LEFT);
-        // Gera um número aleatório de 8 caracteres
+    
+        $accessToken = session('access_token');
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/x-www-form-urlencoded',
+            'Authorization' => $accessToken
+        ])->post('https://devipvc.gesfaturacao.pt/gesfaturacao/server/webservices/api/mobile/v1.0.2/receipts', [
+            'client' => 1,
+            'number' => 1,
+            'date' => '23/07/2023',
+            'observations' => 'Teste hotelGest',
+        ]);
 
         Fatura::create($validatedData);
 
-        return redirect()->route('Fatura.create')->with('success', 'Fatura criada com sucesso!');
-
+        dd($response->json());
     }
 
     /**
