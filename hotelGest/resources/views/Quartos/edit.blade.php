@@ -14,7 +14,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-
+p
             <form action="{{ route('quartos.update', $quarto->id) }}" method="post">
                 @csrf
                 @method('PUT')

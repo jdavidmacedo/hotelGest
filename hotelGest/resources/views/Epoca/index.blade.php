@@ -15,6 +15,12 @@
                 </div>
             @endif
 
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <a href="{{ route('epoca.create') }}" class="btn btn-primary mb-3">Adicionar Época</a>
             <table class="table table-bordered table-striped">
                 <thead>

@@ -14,4 +14,10 @@ class Epoca extends Model
         'data_inicio',
         'data_fim'
     ];
+
+    public function quartoEpocas()
+    {
+        return $this->hasMany(QuartoEpoca::class, 'id_epoca');
+    }
+
 }

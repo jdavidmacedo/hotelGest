@@ -14,13 +14,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-                    <a href="{{ route('ReservaQuartos.create') }}" class="btn btn-primary">Criar Reserva</a>
-
-                    @if(session('success'))
-                        <div class="alert alert-success mt-3">
-                            {{ session('success') }}
-                        </div>
-                    @endif
+            <a href="{{ route('ReservaQuartos.create') }}" class="btn btn-primary">Criar Reserva</a>
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -41,7 +35,7 @@
                             <form action="{{ route('ReservaQuartos.destroy', $reservaQuarto->id) }}" method="post" style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir este quarto?')">Excluir</button>
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta reserva?')">Excluir</button>
                             </form>
                         </td>
                     </tr>

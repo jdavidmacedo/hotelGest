@@ -22,7 +22,7 @@
             @endif
 
             <a href="{{ route('TipoQuarto.create') }}" class="btn btn-primary">Criar Tipo de Quarto</a>
-
+                <br><br>
 
             <table class="table table-bordered table-striped">
                 <thead>

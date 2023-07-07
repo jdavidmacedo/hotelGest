@@ -15,7 +15,8 @@ class Reserva extends Model
         'id_quarto_epoca',
         'data_checkin',
         'data_checkout',
-        'status'
+        'status',
+        'preco_total'
     ];
 
     public function cliente()
@@ -32,4 +33,17 @@ class Reserva extends Model
     {
         return $this->belongsTo(QuartoEpoca::class, 'id_quarto_epoca');
     }
+
+
+    public function precoTotal() {
+        if ($this->quartoEpoca) {
+            $checkin = \Carbon\Carbon::parse($this->data_checkin);
+            $checkout = \Carbon\Carbon::parse($this->data_checkout);
+            $noites = $checkin->diffInDays($checkout);
+            return $noites * $this->quartoEpoca->preco_base_por_noite;
+        }
+        // Caso não exista `quartoEpoca`, retornar algum valor padrão, como 0
+        return 0;
+    }
+
 }

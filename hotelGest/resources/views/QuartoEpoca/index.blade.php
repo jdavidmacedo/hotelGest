@@ -14,6 +14,14 @@
                     {{ session('success') }}
                 </div>
             @endif
+                @if(session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                <a href="{{ route('QuartoEpoca.create') }}" class="btn btn-primary">Adicionar Preço</a>
+                <br><br>
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -44,7 +52,7 @@
                             <form action="{{ route('QuartoEpoca.destroy', $quartoEpoca->id) }}" method="POST" style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Excluir</button>
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta reserva?')">Excluir</button>
                             </form>
                         </td>
                     </tr>

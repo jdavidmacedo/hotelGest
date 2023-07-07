@@ -19,4 +19,9 @@ class Cliente extends Model
         'data_nascimento',
         'NIF'
     ];
+
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class, 'id_cliente');
+    }
 }

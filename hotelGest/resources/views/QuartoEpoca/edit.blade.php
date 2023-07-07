@@ -19,15 +19,36 @@
                 @method('PUT')
                 <div class="form-group">
                     <label for="id_quarto">Quarto:</label>
-                    <input type="text" name="id_quarto" id="id_quarto" class="form-control" value="{{ $quartoEpoca->id_quarto }}" required>
+                    <select name="id_quarto" id="id_quarto" class="form-control" required>
+                        <option value="">Selecione um quarto</option>
+                        @foreach($quartos as $quarto)
+                            <option value="{{ $quarto->id }}" {{ $quarto->id == $quartoEpoca->id_quarto ? 'selected' : '' }}>
+                                {{ $quarto->numero_do_quarto }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="id_epoca">Época:</label>
-                    <input type="text" name="id_epoca" id="id_epoca" class="form-control" value="{{ $quartoEpoca->id_epoca }}" required>
+                    <select name="id_epoca" id="id_epoca" class="form-control" required>
+                        <option value="">Selecione uma época</option>
+                        @foreach($epocas as $epoca)
+                            <option value="{{ $epoca->id }}" {{ $epoca->id == $quartoEpoca->id_epoca ? 'selected' : '' }}>
+                                {{ $epoca->nome }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="id_tipo_quartos">Tipo de quarto:</label>
-                    <input type="text" name="id_tipo_quartos" id="id_tipo_quartos" class="form-control" value="{{ $quartoEpoca->id_tipo_quartos }}" required>
+                    <select name="id_tipo_quartos" id="id_tipo_quartos" class="form-control" required>
+                        <option value="">Selecione um tipo de quarto</option>
+                        @foreach($Tipos as $tipoQuarto)
+                            <option value="{{ $tipoQuarto->id }}" {{ $tipoQuarto->id == $quartoEpoca->id_tipo_quartos ? 'selected' : '' }}>
+                                {{ $tipoQuarto->nome }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="preco_base_por_noite">Preço base por noite:</label>

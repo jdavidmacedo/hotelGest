@@ -11,13 +11,13 @@
         <div class="card-body">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{ route('reserva.create') }}" class="btn btn-primary">Criar Reserva</a>
-
                     @if(session('success'))
                         <div class="alert alert-success mt-3">
                             {{ session('success') }}
                         </div>
                     @endif
+                    <a href="{{ route('reserva.create') }}" class="btn btn-primary">Criar Reserva</a>
+                    <br><br>
                     <table class="table table-bordered table-striped">
                         <thead>
                         <tr>
@@ -42,15 +42,7 @@
                                 <td>{{ \Carbon\Carbon::parse($reserva->data_checkin)->format('d/m/Y') }}</td>
                                 <td>{{ \Carbon\Carbon::parse($reserva->data_checkout)->format('d/m/Y') }}</td>
                                 <td>{{ $reserva->status }}</td>
-                                <td>
-                                    @php
-                                        $checkin = \Carbon\Carbon::parse($reserva->data_checkin);
-                                        $checkout = \Carbon\Carbon::parse($reserva->data_checkout);
-                                        $noites = $checkin->diffInDays($checkout);
-                                        $precoTotal = $noites * $reserva->quartoEpoca->preco_por_noite;
-                                    @endphp
-                                    {{ $precoTotal }}
-                                </td>
+                                <td>{{ $reserva->preco_total }}</td>
                                 <td>
                                     <a href="{{ route('reserva.edit', $reserva->id) }}" class="btn btn-sm btn-info">Atualizar</a>
                                     <form action="{{ route('reserva.destroy', $reserva->id) }}" method="post" style="display:inline">

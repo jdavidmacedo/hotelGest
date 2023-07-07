@@ -16,8 +16,22 @@ class ReservaController extends Controller
         return view('reserva.create', compact('clientes', 'hoteis', 'quartosEpoca'));
     }
 
+
     public function store(Request $request)
     {
+
+        // Instancie a Reserva no início do método
+        $reserva = new Reserva;
+
+        // Configure as propriedades necessárias para calcular o preço total
+        $reserva->data_checkin = $request->data_checkin;
+        $reserva->data_checkout = $request->data_checkout;
+        $reserva->id_quarto_epoca = $request->id_quarto_epoca;
+
+        // Agora você pode chamar precoTotal()
+        $reserva->preco_total = $reserva->precoTotal();
+
+
         // Obtém todas as reservas para o quarto desejado.
         $reservasExistentes = Reserva::where('id_quarto_epoca', $request->id_quarto_epoca)->get();
 
@@ -39,14 +53,19 @@ class ReservaController extends Controller
         }
 
         // Se não houver sobreposição, prossegue com a criação da reserva.
-        $reserva = new Reserva;
+        //$reserva = new Reserva;
 
+        // Configure as propriedades necessárias
         $reserva->id_cliente = $request->id_cliente;
         $reserva->id_hotel = $request->id_hotel;
-        $reserva->id_quarto_epoca = $request->id_quarto_epoca;
-        $reserva->data_checkin = $request->data_checkin;
-        $reserva->data_checkout = $request->data_checkout;
+        //$reserva->id_quarto_epoca = $request->id_quarto_epoca;
+        //$reserva->data_checkin = $request->data_checkin;
+        //$reserva->data_checkout = $request->data_checkout;
         $reserva->status = $request->status;
+
+        // Agora você pode chamar precoTotal()
+        $reserva->preco_total = $reserva->precoTotal();
+
 
         $reserva->save();
 
@@ -75,7 +94,7 @@ class ReservaController extends Controller
     {
         $reserva = Reserva::find($id);
 
-
+        // Atualize os detalhes da reserva primeiro
         $reserva->id_cliente = $request->id_cliente;
         $reserva->id_hotel = $request->id_hotel;
         $reserva->id_quarto_epoca = $request->id_quarto_epoca;
@@ -83,10 +102,11 @@ class ReservaController extends Controller
         $reserva->data_checkout = $request->data_checkout;
         $reserva->status = $request->status;
 
+        // Depois calcule o preco_total
+        $reserva->preco_total = $reserva->precoTotal();
 
-        $reserva->save();
 
-        return redirect()->route('reserva.index')->with('success', 'Reserva atualizada com sucesso!');;
+        return redirect()->route('reserva.index')->with('success', 'Reserva atualizada com sucesso!');
     }
 
     public function destroy($id)
@@ -94,6 +114,6 @@ class ReservaController extends Controller
         $reserva = Reserva::find($id);
         $reserva->delete();
 
-        return redirect()->route('reserva.index')->with('success', 'Reserva removida com sucesso!');;
+        return redirect()->route('reserva.index')->with('success', 'Reserva removida com sucesso!');
     }
 }

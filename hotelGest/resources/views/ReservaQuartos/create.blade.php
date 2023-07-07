@@ -36,6 +36,7 @@
                     </select>
                 </div>
 
+
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Salvar</button>
                     <a href="" class="btn btn-default">Cancelar</a>
@@ -45,9 +46,9 @@
     </div>
 @stop
 
-@section('adminlte_js')
+@section('scripts')
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#id_quarto').select2();
         });
     </script>

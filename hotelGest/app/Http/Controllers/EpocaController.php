@@ -50,8 +50,15 @@ class EpocaController extends Controller
 
     public function destroy(Epoca $epoca)
     {
+        // Verifica se a época está associada a algum QuartoEpoca
+        if ($epoca->quartoEpocas()->count() > 0) {
+            return redirect()->route('epoca.index')->with('error', 'Esta época não pode ser excluída porque está associada a um ou mais quartos.');
+        }
+
         $epoca->delete();
+
         return redirect()->route('epoca.index')->with('success', 'Época removida com sucesso!');
     }
+
 }
 

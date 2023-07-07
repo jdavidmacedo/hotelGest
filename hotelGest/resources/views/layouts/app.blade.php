@@ -16,7 +16,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
 
-
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -80,14 +79,25 @@
             @yield('content')
         </main>
     </div>
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <!-- jQuery (necessário para o Select2) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
     <script>
         $.fn.dataTable = $.fn.DataTable = function () {
             // Código do DataTables
         };
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#id_quarto').select2();
+        });
+    </script>
+
+    @yield('scripts')
 
     @yield('scripts')
 </body>

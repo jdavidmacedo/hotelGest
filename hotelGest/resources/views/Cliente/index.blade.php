@@ -15,7 +15,16 @@
                 </div>
             @endif
 
-            <a href="{{ route('cliente.create') }}" class="btn btn-primary mb-3">Adicionar Cliente</a>
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                            {{ $error }}
+                        @endforeach
+                    </div>
+                @endif
+
+
+                <a href="{{ route('cliente.create') }}" class="btn btn-primary mb-3">Adicionar Cliente</a>
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
