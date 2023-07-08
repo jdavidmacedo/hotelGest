@@ -50,7 +50,7 @@ class HomeController extends Controller
             $errorCode = $response->status();
             $errorMessage = $response->body();
         
-            dd($errorMessage);
+            //dd($errorMessage);
         }
         return view('home');
     }
