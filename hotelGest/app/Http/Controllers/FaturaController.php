@@ -52,7 +52,7 @@ class FaturaController extends Controller
             'Authorization' => $accessToken
         ])->post('https://devipvc.gesfaturacao.pt/gesfaturacao/server/webservices/api/mobile/v1.0.2/receipts', [
             'client' => 1,
-            'number' => 1,
+            'number' => '1',
             'date' => '23/07/2023',
             'observations' => 'Teste hotelGest',
         ]);
