@@ -60,13 +60,23 @@ class ReservaQuartoController extends Controller
             'id_quarto.*' => 'integer|exists:quartos,id',
         ]);
 
-        $reservaQuarto = ReservaQuarto::findOrFail($id);
-        $reservaQuarto->id_reserva = $validatedData['id_reserva'];
-        $reservaQuarto->id_quarto = $validatedData['id_quarto'][0]; // Ajuste aqui para pegar o primeiro valor do array
-        $reservaQuarto->save();
+        // Encontre a reserva
+        $reserva = Reserva::findOrFail($validatedData['id_reserva']);
+
+        // Remova todas as ligações antigas
+        ReservaQuarto::where('id_reserva', $reserva->id)->delete();
+
+        // Crie novas ligações
+        foreach ($validatedData['id_quarto'] as $quartoId) {
+            $reservaQuarto = new ReservaQuarto();
+            $reservaQuarto->id_reserva = $reserva->id;
+            $reservaQuarto->id_quarto = $quartoId;
+            $reservaQuarto->save();
+        }
 
         return redirect()->route('ReservaQuartos.index')->with('success', 'Reserva atualizada com sucesso!');
     }
+
 
     public function destroy($id)
     {
