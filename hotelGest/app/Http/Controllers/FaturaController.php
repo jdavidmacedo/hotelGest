@@ -47,6 +47,10 @@ class FaturaController extends Controller
             'date' => '23/07/2023',
             'observations' => 'Teste hotelGest',
         ]);
+
+        dd($response->json());
+
+        
         //----------------------------------------------------------------
         
         $validatedData = $request->validate([
