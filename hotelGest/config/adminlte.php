@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Hotel</b>Gest',
+    'logo_img' => '',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_alt' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -110,7 +110,7 @@ return [
         'enabled' => true,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'alt' => '',
             'effect' => 'animation__shake',
             'width' => 60,
             'height' => 60,
@@ -312,17 +312,17 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'header' => 'account_settings',
+            'header' => 'Conta',
         ],
         [
-            'text' => 'profiles',
+            'text' => 'Perfil',
 
             'url'  => '/profiles',
 
             'icon' => 'fas fa-fw fa-user',
         ],
 
-        ['header' => 'Management'],
+        ['header' => 'Administração'],
         [
             'text' => 'Hotel',
             'icon' => 'fas fa-fw fa-hotel',
@@ -355,7 +355,6 @@ return [
                 ],
             ],
         ],
-
         [
             'text'    => 'Quartos',
             'icon'    => 'fas fa-fw fa-bed',
@@ -375,40 +374,6 @@ return [
 
         ],
         [
-            'text'    => 'Epocas',
-            'ícone' => 'fas fa-fw fa-calendar-alt',
-            'submenu' => [
-
-                [
-                    'text' => 'Listar Epocas',
-                    'icon' => 'fas fa-fw fa-list',
-                    'url'  => '/epoca',
-                ],
-                [
-                    'text' => 'Adicionar Epocas',
-                    'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/epoca/create',
-                ],
-            ],
-
-        ],
-        [
-            'text'    => 'Preço',
-            'icon' => 'fas fa-fw fa-tag',
-            'submenu' => [
-                [
-                    'text' => 'Listar',
-                    'icon' => 'fas fa-fw fa-list',
-                    'url'  => '/QuartoEpoca',
-                ],
-                [
-                    'text' => 'Adicionar',
-                    'icon' => 'fas fa-fw fa-plus',
-                    'url'  => '/QuartoEpoca/create',
-                ],
-            ],
-        ],
-        [
             'text'    => 'Clientes',
             'icon'    => 'fas fa-fw fa-users',
             'submenu' => [
@@ -426,11 +391,45 @@ return [
             ],
 
         ],
+        ['header' => 'Época'],
+        [
+            'text'    => 'Epocas',
+            'icon' => 'fas fa-fw fa-leaf',
+            'submenu' => [
 
+                [
+                    'text' => 'Listar Epocas',
+                    'icon' => 'fas fa-fw fa-list',
+                    'url'  => '/epoca',
+                ],
+                [
+                    'text' => 'Adicionar Epocas',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/epoca/create',
+                ],
+            ],
 
+        ],
+        [
+            'text'    => 'Preço por Época',
+            'icon' => 'fas fa-fw fa-tag',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'icon' => 'fas fa-fw fa-list',
+                    'url'  => '/QuartoEpoca',
+                ],
+                [
+                    'text' => 'Adicionar',
+                    'icon' => 'fas fa-fw fa-plus',
+                    'url'  => '/QuartoEpoca/create',
+                ],
+            ],
+        ],
+        ['header' => 'Reservar'],
         [
             'text'    => 'Reservas',
-            'icon'    => 'fas fa-fw fa-users',
+            'icon'    => 'fas fa-fw fa-list-alt',
             'submenu' => [
 
                 [
@@ -448,7 +447,7 @@ return [
         ],
         [
             'text'    => 'Fatura',
-            'icon'    => 'fas fa-fw fa-users',
+            'icon'    => 'fas fa-fw fa-folder-open',
             'submenu' => [
 
                 [
@@ -464,9 +463,10 @@ return [
             ],
 
         ],
+        ['header' => 'Outros'],
         [
             'text'    => 'Fatura Reserva',
-            'icon'    => 'fas fa-fw fa-users',
+            'icon'    => 'fas fa-fw fa-database',
             'submenu' => [
 
                 [
@@ -484,7 +484,7 @@ return [
         ],
         [
             'text'    => 'Reserva Quartos',
-            'icon'    => 'fas fa-fw fa-users',
+            'icon'    => 'fas fa-fw fa-database',
             'submenu' => [
 
                 [
@@ -502,7 +502,7 @@ return [
         ],
         [
             'text'    => 'Hospedes',
-            'icon'    => 'fas fa-fw fa-users',
+            'icon'    => 'fas fa-fw fa-database',
             'submenu' => [
 
                 [
